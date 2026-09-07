@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "2.0.0",
+  "requiredFeatures": [
+    "single-melody",
+    "step-tempo"
+  ],
+  "songId": "shining_star",
+  "chartId": "shining_star_main",
+  "chartRevision": 1,
+  "title": "シャイニングスター",
+  "artist": "魔王魂",
+  "durationUs": 276744833,
+  "credits": [
+    {
+      "text": "Music by 魔王魂 (MaouDamashii). Official BPM 158.",
+      "sourceUrl": "https://maou.audio/14_shining_star/",
+      "licenseName": "MaouDamashii Free License"
+    }
+  ],
+  "media": [
+    {
+      "id": "backing",
+      "path": "media/backing.wav",
+      "role": "backing",
+      "sha256": "f2718730817d75730c3e4c1e68b385581b1527f60f4cb814018df76ed2ce7495",
+      "sampleRate": 48000,
+      "channels": 2,
+      "frames": 13283752,
+      "mediaOffsetUs": 0
+    }
+  ],
+  "tracks": [
+    {
+      "id": "lead",
+      "role": "lead"
+    }
+  ],
+  "tempoMap": {
+    "anchorTimeUs": 0,
+    "anchorQuarterBeat": 0.0,
+    "events": [
+      {
+        "timeUs": 0,
+        "bpm": 158.0
+      }
+    ],
+    "meters": [
+      {
+        "quarterBeat": 0.0,
+        "numerator": 4,
+        "denominator": 4
+      }
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "trackId": "lead",
+      "startUs": 30379747,
+      "endUs": 30759494,
+      "pitchMidi": 60,
+      "tuningCents": 0.0,
+      "scorable": true
+    },
+    {
+      "id": "n2",
+      "trackId": "lead",
+      "startUs": 30759494,
+      "endUs": 31139241,
+      "pitchMidi": 62,
+      "tuningCents": 0.0,
+      "scorable": true
+    },
+    {
+      "id": "n3",
+      "trackId": "lead",
+      "startUs": 31139241,
+      "endUs": 31518987,
+      "pitchMidi": 64,
+      "tuningCents": 0.0,
+      "scorable": true
+    },
+    {
+      "id": "n4",
+      "trackId": "lead",
+      "startUs": 31518987,
+      "endUs": 31898734,
+      "pitchMidi": 65,
+      "tuningCents": 0.0,
+      "scorable": true
+    },
+    {
+      "id": "n5",
+      "trackId": "lead",
+      "startUs": 31898734,
+      "endUs": 32658228,
+      "pitchMidi": 67,
+      "tuningCents": 0.0,
+      "scorable": true
+    }
+  ],
+  "lyricTokens": [
+    {
+      "id": "t1",
+      "text": "た",
+      "ruby": "",
+      "noteIds": ["n1"],
+      "startUs": 30379747,
+      "endUs": 30759494
+    },
+    {
+      "id": "t2",
+      "text": "だ",
+      "ruby": "",
+      "noteIds": ["n2"],
+      "startUs": 30759494,
+      "endUs": 31139241
+    },
+    {
+      "id": "t3",
+      "text": "ひ",
+      "ruby": "",
+      "noteIds": ["n3"],
+      "startUs": 31139241,
+      "endUs": 31518987
+    },
+    {
+      "id": "t4",
+      "text": "と",
+      "ruby": "",
+      "noteIds": ["n4"],
+      "startUs": 31518987,
+      "endUs": 31898734
+    },
+    {
+      "id": "t5",
+      "text": "つ",
+      "ruby": "",
+      "noteIds": ["n5"],
+      "startUs": 31898734,
+      "endUs": 32658228
+    }
+  ],
+  "phrases": [
+    {
+      "id": "p1",
+      "startUs": 30379747,
+      "endUs": 32658228,
+      "tokenIds": ["t1", "t2", "t3", "t4", "t5"]
+    }
+  ],
+  "extensions": {
+    "status": "draft",
+    "verifiedRangeUs": [30379747, 32658228],
+    "note": "Intro is 20 bars (30.38s). Notes n1-n5 are verified against audio intro. Subsequent notes are draft."
+  }
+}

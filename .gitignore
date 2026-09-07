@@ -1,0 +1,16 @@
+/target/
+node_modules/
+dist/
+*.pdb
+*.log
+.DS_Store
+Thumbs.db
+tmpmusic/
+services/analyzer/.venv/
+services/analyzer/models/
+**/__pycache__/
+/library/
+/exports/
+/計画設計システム/
+/tests/fixtures/*.bak
+/tests/fixtures/*.recovery.json

@@ -1,0 +1,4123 @@
+{
+  "schemaVersion": "2.0.0",
+  "requiredFeatures": [
+    "single-melody",
+    "step-tempo"
+  ],
+  "songId": "shining_star",
+  "chartId": "shining_star_rmvpe_draft",
+  "chartRevision": 1,
+  "title": "シャイニングスター",
+  "artist": "魔王魂",
+  "durationUs": 276688549,
+  "credits": [
+    {
+      "text": "Music by 魔王魂 (MaouDamashii). Official BPM 158. AI Draft extracted via Demucs & RMVPE.",
+      "sourceUrl": "https://maou.audio/14_shining_star/",
+      "licenseName": "MaouDamashii Free License"
+    }
+  ],
+  "media": [
+    {
+      "id": "backing",
+      "path": "media/backing.wav",
+      "role": "backing",
+      "sha256": "f2718730817d75730c3e4c1e68b385581b1527f60f4cb814018df76ed2ce7495",
+      "sampleRate": 48000,
+      "channels": 2,
+      "frames": 13283752,
+      "mediaOffsetUs": 0
+    }
+  ],
+  "tracks": [
+    {
+      "id": "lead",
+      "role": "lead"
+    }
+  ],
+  "tempoMap": {
+    "anchorTimeUs": 0,
+    "anchorQuarterBeat": 0.0,
+    "events": [
+      {
+        "timeUs": 0,
+        "bpm": 158.0
+      }
+    ],
+    "meters": [
+      {
+        "quarterBeat": 0.0,
+        "numerator": 4,
+        "denominator": 4
+      }
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "trackId": "lead",
+      "startUs": 17370000,
+      "endUs": 17500000,
+      "pitchMidi": 60,
+      "tuningCents": -17.1,
+      "scorable": true
+    },
+    {
+      "id": "n2",
+      "trackId": "lead",
+      "startUs": 17500000,
+      "endUs": 17620000,
+      "pitchMidi": 55,
+      "tuningCents": -11.5,
+      "scorable": true
+    },
+    {
+      "id": "n3",
+      "trackId": "lead",
+      "startUs": 17740000,
+      "endUs": 17800000,
+      "pitchMidi": 53,
+      "tuningCents": 39.3,
+      "scorable": true
+    },
+    {
+      "id": "n4",
+      "trackId": "lead",
+      "startUs": 17800000,
+      "endUs": 18050000,
+      "pitchMidi": 60,
+      "tuningCents": 0.7,
+      "scorable": true
+    },
+    {
+      "id": "n5",
+      "trackId": "lead",
+      "startUs": 18100000,
+      "endUs": 18210000,
+      "pitchMidi": 63,
+      "tuningCents": 7.9,
+      "scorable": true
+    },
+    {
+      "id": "n6",
+      "trackId": "lead",
+      "startUs": 18220000,
+      "endUs": 18800000,
+      "pitchMidi": 63,
+      "tuningCents": -6.9,
+      "scorable": true
+    },
+    {
+      "id": "n7",
+      "trackId": "lead",
+      "startUs": 18800000,
+      "endUs": 18950000,
+      "pitchMidi": 61,
+      "tuningCents": 2.5,
+      "scorable": true
+    },
+    {
+      "id": "n8",
+      "trackId": "lead",
+      "startUs": 18950000,
+      "endUs": 19010000,
+      "pitchMidi": 59,
+      "tuningCents": 8.6,
+      "scorable": true
+    },
+    {
+      "id": "n9",
+      "trackId": "lead",
+      "startUs": 19010000,
+      "endUs": 19480000,
+      "pitchMidi": 61,
+      "tuningCents": -15.8,
+      "scorable": true
+    },
+    {
+      "id": "n10",
+      "trackId": "lead",
+      "startUs": 19560000,
+      "endUs": 19750000,
+      "pitchMidi": 61,
+      "tuningCents": -11.5,
+      "scorable": true
+    },
+    {
+      "id": "n11",
+      "trackId": "lead",
+      "startUs": 19750000,
+      "endUs": 21050000,
+      "pitchMidi": 61,
+      "tuningCents": 18.9,
+      "scorable": true
+    },
+    {
+      "id": "n12",
+      "trackId": "lead",
+      "startUs": 21070000,
+      "endUs": 21580000,
+      "pitchMidi": 65,
+      "tuningCents": 7.9,
+      "scorable": true
+    },
+    {
+      "id": "n13",
+      "trackId": "lead",
+      "startUs": 21780000,
+      "endUs": 22040000,
+      "pitchMidi": 61,
+      "tuningCents": -3.2,
+      "scorable": true
+    },
+    {
+      "id": "n14",
+      "trackId": "lead",
+      "startUs": 22040000,
+      "endUs": 22210000,
+      "pitchMidi": 63,
+      "tuningCents": -11.3,
+      "scorable": true
+    },
+    {
+      "id": "n15",
+      "trackId": "lead",
+      "startUs": 22210000,
+      "endUs": 22350000,
+      "pitchMidi": 65,
+      "tuningCents": -17.4,
+      "scorable": true
+    },
+    {
+      "id": "n16",
+      "trackId": "lead",
+      "startUs": 22380000,
+      "endUs": 22940000,
+      "pitchMidi": 66,
+      "tuningCents": -11.0,
+      "scorable": true
+    },
+    {
+      "id": "n17",
+      "trackId": "lead",
+      "startUs": 22940000,
+      "endUs": 23670000,
+      "pitchMidi": 60,
+      "tuningCents": 33.0,
+      "scorable": true
+    },
+    {
+      "id": "n18",
+      "trackId": "lead",
+      "startUs": 23740000,
+      "endUs": 23910000,
+      "pitchMidi": 65,
+      "tuningCents": 3.6,
+      "scorable": true
+    },
+    {
+      "id": "n19",
+      "trackId": "lead",
+      "startUs": 23910000,
+      "endUs": 24560000,
+      "pitchMidi": 61,
+      "tuningCents": -8.1,
+      "scorable": true
+    },
+    {
+      "id": "n20",
+      "trackId": "lead",
+      "startUs": 24870000,
+      "endUs": 25040000,
+      "pitchMidi": 61,
+      "tuningCents": -2.6,
+      "scorable": true
+    },
+    {
+      "id": "n21",
+      "trackId": "lead",
+      "startUs": 25040000,
+      "endUs": 25510000,
+      "pitchMidi": 61,
+      "tuningCents": -9.8,
+      "scorable": true
+    },
+    {
+      "id": "n22",
+      "trackId": "lead",
+      "startUs": 25650000,
+      "endUs": 26420000,
+      "pitchMidi": 61,
+      "tuningCents": -7.3,
+      "scorable": true
+    },
+    {
+      "id": "n23",
+      "trackId": "lead",
+      "startUs": 26420000,
+      "endUs": 26740000,
+      "pitchMidi": 61,
+      "tuningCents": -6.1,
+      "scorable": true
+    },
+    {
+      "id": "n24",
+      "trackId": "lead",
+      "startUs": 26740000,
+      "endUs": 27080000,
+      "pitchMidi": 56,
+      "tuningCents": 3.0,
+      "scorable": true
+    },
+    {
+      "id": "n25",
+      "trackId": "lead",
+      "startUs": 27080000,
+      "endUs": 27140000,
+      "pitchMidi": 60,
+      "tuningCents": 5.7,
+      "scorable": true
+    },
+    {
+      "id": "n26",
+      "trackId": "lead",
+      "startUs": 27150000,
+      "endUs": 27690000,
+      "pitchMidi": 65,
+      "tuningCents": -39.4,
+      "scorable": true
+    },
+    {
+      "id": "n27",
+      "trackId": "lead",
+      "startUs": 27940000,
+      "endUs": 28070000,
+      "pitchMidi": 65,
+      "tuningCents": -11.3,
+      "scorable": true
+    },
+    {
+      "id": "n28",
+      "trackId": "lead",
+      "startUs": 28070000,
+      "endUs": 28400000,
+      "pitchMidi": 66,
+      "tuningCents": -30.9,
+      "scorable": true
+    },
+    {
+      "id": "n29",
+      "trackId": "lead",
+      "startUs": 28480000,
+      "endUs": 28980000,
+      "pitchMidi": 63,
+      "tuningCents": 31.4,
+      "scorable": true
+    },
+    {
+      "id": "n30",
+      "trackId": "lead",
+      "startUs": 28980000,
+      "endUs": 29410000,
+      "pitchMidi": 61,
+      "tuningCents": -3.3,
+      "scorable": true
+    },
+    {
+      "id": "n31",
+      "trackId": "lead",
+      "startUs": 29430000,
+      "endUs": 29720000,
+      "pitchMidi": 60,
+      "tuningCents": 23.0,
+      "scorable": true
+    },
+    {
+      "id": "n32",
+      "trackId": "lead",
+      "startUs": 29810000,
+      "endUs": 30390000,
+      "pitchMidi": 60,
+      "tuningCents": 7.8,
+      "scorable": true
+    },
+    {
+      "id": "n33",
+      "trackId": "lead",
+      "startUs": 30390000,
+      "endUs": 30800000,
+      "pitchMidi": 63,
+      "tuningCents": -16.1,
+      "scorable": true
+    },
+    {
+      "id": "n34",
+      "trackId": "lead",
+      "startUs": 30930000,
+      "endUs": 31570000,
+      "pitchMidi": 61,
+      "tuningCents": -2.7,
+      "scorable": true
+    },
+    {
+      "id": "n35",
+      "trackId": "lead",
+      "startUs": 31750000,
+      "endUs": 32510000,
+      "pitchMidi": 61,
+      "tuningCents": -17.2,
+      "scorable": true
+    },
+    {
+      "id": "n36",
+      "trackId": "lead",
+      "startUs": 32510000,
+      "endUs": 32610000,
+      "pitchMidi": 58,
+      "tuningCents": 8.5,
+      "scorable": true
+    },
+    {
+      "id": "n37",
+      "trackId": "lead",
+      "startUs": 32610000,
+      "endUs": 32670000,
+      "pitchMidi": 61,
+      "tuningCents": -10.1,
+      "scorable": true
+    },
+    {
+      "id": "n38",
+      "trackId": "lead",
+      "startUs": 32670000,
+      "endUs": 32800000,
+      "pitchMidi": 63,
+      "tuningCents": -10.3,
+      "scorable": true
+    },
+    {
+      "id": "n39",
+      "trackId": "lead",
+      "startUs": 32840000,
+      "endUs": 32980000,
+      "pitchMidi": 65,
+      "tuningCents": 11.5,
+      "scorable": true
+    },
+    {
+      "id": "n40",
+      "trackId": "lead",
+      "startUs": 33050000,
+      "endUs": 33660000,
+      "pitchMidi": 65,
+      "tuningCents": 8.9,
+      "scorable": true
+    },
+    {
+      "id": "n41",
+      "trackId": "lead",
+      "startUs": 33990000,
+      "endUs": 34290000,
+      "pitchMidi": 65,
+      "tuningCents": 39.9,
+      "scorable": true
+    },
+    {
+      "id": "n42",
+      "trackId": "lead",
+      "startUs": 34290000,
+      "endUs": 34680000,
+      "pitchMidi": 68,
+      "tuningCents": 2.9,
+      "scorable": true
+    },
+    {
+      "id": "n43",
+      "trackId": "lead",
+      "startUs": 34750000,
+      "endUs": 34810000,
+      "pitchMidi": 68,
+      "tuningCents": 29.3,
+      "scorable": true
+    },
+    {
+      "id": "n44",
+      "trackId": "lead",
+      "startUs": 34810000,
+      "endUs": 34890000,
+      "pitchMidi": 68,
+      "tuningCents": -8.4,
+      "scorable": true
+    },
+    {
+      "id": "n45",
+      "trackId": "lead",
+      "startUs": 34890000,
+      "endUs": 34950000,
+      "pitchMidi": 66,
+      "tuningCents": 4.3,
+      "scorable": true
+    },
+    {
+      "id": "n46",
+      "trackId": "lead",
+      "startUs": 34950000,
+      "endUs": 35030000,
+      "pitchMidi": 69,
+      "tuningCents": 0.5,
+      "scorable": true
+    },
+    {
+      "id": "n47",
+      "trackId": "lead",
+      "startUs": 35140000,
+      "endUs": 35460000,
+      "pitchMidi": 65,
+      "tuningCents": -2.2,
+      "scorable": true
+    },
+    {
+      "id": "n48",
+      "trackId": "lead",
+      "startUs": 35460000,
+      "endUs": 35530000,
+      "pitchMidi": 61,
+      "tuningCents": 28.8,
+      "scorable": true
+    },
+    {
+      "id": "n49",
+      "trackId": "lead",
+      "startUs": 35530000,
+      "endUs": 35800000,
+      "pitchMidi": 63,
+      "tuningCents": 6.0,
+      "scorable": true
+    },
+    {
+      "id": "n50",
+      "trackId": "lead",
+      "startUs": 35870000,
+      "endUs": 36060000,
+      "pitchMidi": 65,
+      "tuningCents": -0.9,
+      "scorable": true
+    },
+    {
+      "id": "n51",
+      "trackId": "lead",
+      "startUs": 36060000,
+      "endUs": 36730000,
+      "pitchMidi": 61,
+      "tuningCents": 0.8,
+      "scorable": true
+    },
+    {
+      "id": "n52",
+      "trackId": "lead",
+      "startUs": 37010000,
+      "endUs": 37570000,
+      "pitchMidi": 61,
+      "tuningCents": 5.0,
+      "scorable": true
+    },
+    {
+      "id": "n53",
+      "trackId": "lead",
+      "startUs": 37570000,
+      "endUs": 37660000,
+      "pitchMidi": 58,
+      "tuningCents": 21.9,
+      "scorable": true
+    },
+    {
+      "id": "n54",
+      "trackId": "lead",
+      "startUs": 37780000,
+      "endUs": 38290000,
+      "pitchMidi": 61,
+      "tuningCents": 7.8,
+      "scorable": true
+    },
+    {
+      "id": "n55",
+      "trackId": "lead",
+      "startUs": 38290000,
+      "endUs": 38420000,
+      "pitchMidi": 58,
+      "tuningCents": -12.5,
+      "scorable": true
+    },
+    {
+      "id": "n56",
+      "trackId": "lead",
+      "startUs": 38540000,
+      "endUs": 38700000,
+      "pitchMidi": 61,
+      "tuningCents": -14.0,
+      "scorable": true
+    },
+    {
+      "id": "n57",
+      "trackId": "lead",
+      "startUs": 38730000,
+      "endUs": 38880000,
+      "pitchMidi": 61,
+      "tuningCents": 5.4,
+      "scorable": true
+    },
+    {
+      "id": "n58",
+      "trackId": "lead",
+      "startUs": 38880000,
+      "endUs": 39040000,
+      "pitchMidi": 56,
+      "tuningCents": -22.5,
+      "scorable": true
+    },
+    {
+      "id": "n59",
+      "trackId": "lead",
+      "startUs": 39040000,
+      "endUs": 39220000,
+      "pitchMidi": 56,
+      "tuningCents": -20.0,
+      "scorable": true
+    },
+    {
+      "id": "n60",
+      "trackId": "lead",
+      "startUs": 39300000,
+      "endUs": 39490000,
+      "pitchMidi": 59,
+      "tuningCents": 42.2,
+      "scorable": true
+    },
+    {
+      "id": "n61",
+      "trackId": "lead",
+      "startUs": 39490000,
+      "endUs": 39840000,
+      "pitchMidi": 65,
+      "tuningCents": 3.0,
+      "scorable": true
+    },
+    {
+      "id": "n62",
+      "trackId": "lead",
+      "startUs": 40050000,
+      "endUs": 40130000,
+      "pitchMidi": 65,
+      "tuningCents": -7.2,
+      "scorable": true
+    },
+    {
+      "id": "n63",
+      "trackId": "lead",
+      "startUs": 40130000,
+      "endUs": 40810000,
+      "pitchMidi": 65,
+      "tuningCents": 32.7,
+      "scorable": true
+    },
+    {
+      "id": "n64",
+      "trackId": "lead",
+      "startUs": 40810000,
+      "endUs": 41720000,
+      "pitchMidi": 61,
+      "tuningCents": 12.6,
+      "scorable": true
+    },
+    {
+      "id": "n65",
+      "trackId": "lead",
+      "startUs": 41720000,
+      "endUs": 42450000,
+      "pitchMidi": 61,
+      "tuningCents": -24.3,
+      "scorable": true
+    },
+    {
+      "id": "n66",
+      "trackId": "lead",
+      "startUs": 42520000,
+      "endUs": 42950000,
+      "pitchMidi": 63,
+      "tuningCents": -2.8,
+      "scorable": true
+    },
+    {
+      "id": "n67",
+      "trackId": "lead",
+      "startUs": 42990000,
+      "endUs": 43160000,
+      "pitchMidi": 59,
+      "tuningCents": -12.2,
+      "scorable": true
+    },
+    {
+      "id": "n68",
+      "trackId": "lead",
+      "startUs": 43270000,
+      "endUs": 43600000,
+      "pitchMidi": 65,
+      "tuningCents": -7.9,
+      "scorable": true
+    },
+    {
+      "id": "n69",
+      "trackId": "lead",
+      "startUs": 43600000,
+      "endUs": 43670000,
+      "pitchMidi": 63,
+      "tuningCents": -33.9,
+      "scorable": true
+    },
+    {
+      "id": "n70",
+      "trackId": "lead",
+      "startUs": 43670000,
+      "endUs": 44370000,
+      "pitchMidi": 66,
+      "tuningCents": -28.8,
+      "scorable": true
+    },
+    {
+      "id": "n71",
+      "trackId": "lead",
+      "startUs": 44370000,
+      "endUs": 45660000,
+      "pitchMidi": 61,
+      "tuningCents": -8.7,
+      "scorable": true
+    },
+    {
+      "id": "n72",
+      "trackId": "lead",
+      "startUs": 46130000,
+      "endUs": 46240000,
+      "pitchMidi": 61,
+      "tuningCents": -16.2,
+      "scorable": true
+    },
+    {
+      "id": "n73",
+      "trackId": "lead",
+      "startUs": 46330000,
+      "endUs": 46710000,
+      "pitchMidi": 65,
+      "tuningCents": -10.3,
+      "scorable": true
+    },
+    {
+      "id": "n74",
+      "trackId": "lead",
+      "startUs": 46710000,
+      "endUs": 46990000,
+      "pitchMidi": 68,
+      "tuningCents": 3.4,
+      "scorable": true
+    },
+    {
+      "id": "n75",
+      "trackId": "lead",
+      "startUs": 46990000,
+      "endUs": 47050000,
+      "pitchMidi": 66,
+      "tuningCents": -42.2,
+      "scorable": true
+    },
+    {
+      "id": "n76",
+      "trackId": "lead",
+      "startUs": 47100000,
+      "endUs": 47420000,
+      "pitchMidi": 65,
+      "tuningCents": 2.6,
+      "scorable": true
+    },
+    {
+      "id": "n77",
+      "trackId": "lead",
+      "startUs": 47420000,
+      "endUs": 47610000,
+      "pitchMidi": 60,
+      "tuningCents": 1.8,
+      "scorable": true
+    },
+    {
+      "id": "n78",
+      "trackId": "lead",
+      "startUs": 47670000,
+      "endUs": 48170000,
+      "pitchMidi": 60,
+      "tuningCents": 4.1,
+      "scorable": true
+    },
+    {
+      "id": "n79",
+      "trackId": "lead",
+      "startUs": 48220000,
+      "endUs": 48520000,
+      "pitchMidi": 63,
+      "tuningCents": -4.7,
+      "scorable": true
+    },
+    {
+      "id": "n80",
+      "trackId": "lead",
+      "startUs": 48610000,
+      "endUs": 48970000,
+      "pitchMidi": 61,
+      "tuningCents": 26.8,
+      "scorable": true
+    },
+    {
+      "id": "n81",
+      "trackId": "lead",
+      "startUs": 49200000,
+      "endUs": 49260000,
+      "pitchMidi": 61,
+      "tuningCents": -1.7,
+      "scorable": true
+    },
+    {
+      "id": "n82",
+      "trackId": "lead",
+      "startUs": 49360000,
+      "endUs": 49510000,
+      "pitchMidi": 68,
+      "tuningCents": 47.0,
+      "scorable": true
+    },
+    {
+      "id": "n83",
+      "trackId": "lead",
+      "startUs": 49510000,
+      "endUs": 49570000,
+      "pitchMidi": 65,
+      "tuningCents": 38.2,
+      "scorable": true
+    },
+    {
+      "id": "n84",
+      "trackId": "lead",
+      "startUs": 49570000,
+      "endUs": 49630000,
+      "pitchMidi": 68,
+      "tuningCents": -43.6,
+      "scorable": true
+    },
+    {
+      "id": "n85",
+      "trackId": "lead",
+      "startUs": 49670000,
+      "endUs": 50080000,
+      "pitchMidi": 68,
+      "tuningCents": -26.8,
+      "scorable": true
+    },
+    {
+      "id": "n86",
+      "trackId": "lead",
+      "startUs": 50080000,
+      "endUs": 50340000,
+      "pitchMidi": 66,
+      "tuningCents": -13.2,
+      "scorable": true
+    },
+    {
+      "id": "n87",
+      "trackId": "lead",
+      "startUs": 50400000,
+      "endUs": 50650000,
+      "pitchMidi": 65,
+      "tuningCents": 19.8,
+      "scorable": true
+    },
+    {
+      "id": "n88",
+      "trackId": "lead",
+      "startUs": 50650000,
+      "endUs": 50780000,
+      "pitchMidi": 66,
+      "tuningCents": -25.2,
+      "scorable": true
+    },
+    {
+      "id": "n89",
+      "trackId": "lead",
+      "startUs": 50780000,
+      "endUs": 50840000,
+      "pitchMidi": 62,
+      "tuningCents": 17.7,
+      "scorable": true
+    },
+    {
+      "id": "n90",
+      "trackId": "lead",
+      "startUs": 50870000,
+      "endUs": 51130000,
+      "pitchMidi": 71,
+      "tuningCents": -7.4,
+      "scorable": true
+    },
+    {
+      "id": "n91",
+      "trackId": "lead",
+      "startUs": 51130000,
+      "endUs": 52020000,
+      "pitchMidi": 68,
+      "tuningCents": 10.4,
+      "scorable": true
+    },
+    {
+      "id": "n92",
+      "trackId": "lead",
+      "startUs": 52200000,
+      "endUs": 52270000,
+      "pitchMidi": 63,
+      "tuningCents": -30.2,
+      "scorable": true
+    },
+    {
+      "id": "n93",
+      "trackId": "lead",
+      "startUs": 52390000,
+      "endUs": 52450000,
+      "pitchMidi": 67,
+      "tuningCents": -43.4,
+      "scorable": true
+    },
+    {
+      "id": "n94",
+      "trackId": "lead",
+      "startUs": 52450000,
+      "endUs": 52520000,
+      "pitchMidi": 69,
+      "tuningCents": -44.7,
+      "scorable": true
+    },
+    {
+      "id": "n95",
+      "trackId": "lead",
+      "startUs": 52520000,
+      "endUs": 52790000,
+      "pitchMidi": 65,
+      "tuningCents": 27.8,
+      "scorable": true
+    },
+    {
+      "id": "n96",
+      "trackId": "lead",
+      "startUs": 52790000,
+      "endUs": 52880000,
+      "pitchMidi": 68,
+      "tuningCents": -3.2,
+      "scorable": true
+    },
+    {
+      "id": "n97",
+      "trackId": "lead",
+      "startUs": 52880000,
+      "endUs": 52950000,
+      "pitchMidi": 63,
+      "tuningCents": 39.5,
+      "scorable": true
+    },
+    {
+      "id": "n98",
+      "trackId": "lead",
+      "startUs": 52950000,
+      "endUs": 53100000,
+      "pitchMidi": 66,
+      "tuningCents": -0.4,
+      "scorable": true
+    },
+    {
+      "id": "n99",
+      "trackId": "lead",
+      "startUs": 53160000,
+      "endUs": 53380000,
+      "pitchMidi": 66,
+      "tuningCents": 2.4,
+      "scorable": true
+    },
+    {
+      "id": "n100",
+      "trackId": "lead",
+      "startUs": 53440000,
+      "endUs": 53710000,
+      "pitchMidi": 68,
+      "tuningCents": -3.3,
+      "scorable": true
+    },
+    {
+      "id": "n101",
+      "trackId": "lead",
+      "startUs": 53710000,
+      "endUs": 53820000,
+      "pitchMidi": 69,
+      "tuningCents": -4.9,
+      "scorable": true
+    },
+    {
+      "id": "n102",
+      "trackId": "lead",
+      "startUs": 53900000,
+      "endUs": 53960000,
+      "pitchMidi": 71,
+      "tuningCents": 13.2,
+      "scorable": true
+    },
+    {
+      "id": "n103",
+      "trackId": "lead",
+      "startUs": 53960000,
+      "endUs": 54490000,
+      "pitchMidi": 66,
+      "tuningCents": 4.8,
+      "scorable": true
+    },
+    {
+      "id": "n104",
+      "trackId": "lead",
+      "startUs": 54490000,
+      "endUs": 54550000,
+      "pitchMidi": 71,
+      "tuningCents": -1.6,
+      "scorable": true
+    },
+    {
+      "id": "n105",
+      "trackId": "lead",
+      "startUs": 54550000,
+      "endUs": 54850000,
+      "pitchMidi": 71,
+      "tuningCents": -4.4,
+      "scorable": true
+    },
+    {
+      "id": "n106",
+      "trackId": "lead",
+      "startUs": 54850000,
+      "endUs": 55190000,
+      "pitchMidi": 66,
+      "tuningCents": 9.2,
+      "scorable": true
+    },
+    {
+      "id": "n107",
+      "trackId": "lead",
+      "startUs": 55190000,
+      "endUs": 55280000,
+      "pitchMidi": 66,
+      "tuningCents": 0.2,
+      "scorable": true
+    },
+    {
+      "id": "n108",
+      "trackId": "lead",
+      "startUs": 55280000,
+      "endUs": 55370000,
+      "pitchMidi": 71,
+      "tuningCents": 17.5,
+      "scorable": true
+    },
+    {
+      "id": "n109",
+      "trackId": "lead",
+      "startUs": 56560000,
+      "endUs": 57430000,
+      "pitchMidi": 66,
+      "tuningCents": 45.9,
+      "scorable": true
+    },
+    {
+      "id": "n110",
+      "trackId": "lead",
+      "startUs": 57520000,
+      "endUs": 57840000,
+      "pitchMidi": 68,
+      "tuningCents": -0.1,
+      "scorable": true
+    },
+    {
+      "id": "n111",
+      "trackId": "lead",
+      "startUs": 57920000,
+      "endUs": 58220000,
+      "pitchMidi": 68,
+      "tuningCents": -33.8,
+      "scorable": true
+    },
+    {
+      "id": "n112",
+      "trackId": "lead",
+      "startUs": 58280000,
+      "endUs": 58590000,
+      "pitchMidi": 68,
+      "tuningCents": -40.8,
+      "scorable": true
+    },
+    {
+      "id": "n113",
+      "trackId": "lead",
+      "startUs": 58590000,
+      "endUs": 58810000,
+      "pitchMidi": 61,
+      "tuningCents": 1.0,
+      "scorable": true
+    },
+    {
+      "id": "n114",
+      "trackId": "lead",
+      "startUs": 58810000,
+      "endUs": 58870000,
+      "pitchMidi": 59,
+      "tuningCents": -7.6,
+      "scorable": true
+    },
+    {
+      "id": "n115",
+      "trackId": "lead",
+      "startUs": 58870000,
+      "endUs": 59210000,
+      "pitchMidi": 61,
+      "tuningCents": 12.8,
+      "scorable": true
+    },
+    {
+      "id": "n116",
+      "trackId": "lead",
+      "startUs": 59420000,
+      "endUs": 59600000,
+      "pitchMidi": 61,
+      "tuningCents": 4.4,
+      "scorable": true
+    },
+    {
+      "id": "n117",
+      "trackId": "lead",
+      "startUs": 59600000,
+      "endUs": 59770000,
+      "pitchMidi": 68,
+      "tuningCents": -27.5,
+      "scorable": true
+    },
+    {
+      "id": "n118",
+      "trackId": "lead",
+      "startUs": 59770000,
+      "endUs": 60530000,
+      "pitchMidi": 66,
+      "tuningCents": -49.5,
+      "scorable": true
+    },
+    {
+      "id": "n119",
+      "trackId": "lead",
+      "startUs": 60530000,
+      "endUs": 60880000,
+      "pitchMidi": 63,
+      "tuningCents": 4.7,
+      "scorable": true
+    },
+    {
+      "id": "n120",
+      "trackId": "lead",
+      "startUs": 60880000,
+      "endUs": 60940000,
+      "pitchMidi": 67,
+      "tuningCents": -23.0,
+      "scorable": true
+    },
+    {
+      "id": "n121",
+      "trackId": "lead",
+      "startUs": 60940000,
+      "endUs": 61280000,
+      "pitchMidi": 72,
+      "tuningCents": -33.8,
+      "scorable": true
+    },
+    {
+      "id": "n122",
+      "trackId": "lead",
+      "startUs": 61300000,
+      "endUs": 61800000,
+      "pitchMidi": 71,
+      "tuningCents": -15.0,
+      "scorable": true
+    },
+    {
+      "id": "n123",
+      "trackId": "lead",
+      "startUs": 61880000,
+      "endUs": 62350000,
+      "pitchMidi": 73,
+      "tuningCents": -5.8,
+      "scorable": true
+    },
+    {
+      "id": "n124",
+      "trackId": "lead",
+      "startUs": 62640000,
+      "endUs": 62840000,
+      "pitchMidi": 70,
+      "tuningCents": -5.2,
+      "scorable": true
+    },
+    {
+      "id": "n125",
+      "trackId": "lead",
+      "startUs": 62840000,
+      "endUs": 63930000,
+      "pitchMidi": 71,
+      "tuningCents": 45.2,
+      "scorable": true
+    },
+    {
+      "id": "n126",
+      "trackId": "lead",
+      "startUs": 63980000,
+      "endUs": 64670000,
+      "pitchMidi": 72,
+      "tuningCents": -13.9,
+      "scorable": true
+    },
+    {
+      "id": "n127",
+      "trackId": "lead",
+      "startUs": 64720000,
+      "endUs": 64830000,
+      "pitchMidi": 72,
+      "tuningCents": 9.1,
+      "scorable": true
+    },
+    {
+      "id": "n128",
+      "trackId": "lead",
+      "startUs": 64910000,
+      "endUs": 65250000,
+      "pitchMidi": 75,
+      "tuningCents": -48.4,
+      "scorable": true
+    },
+    {
+      "id": "n129",
+      "trackId": "lead",
+      "startUs": 65300000,
+      "endUs": 65650000,
+      "pitchMidi": 73,
+      "tuningCents": -4.5,
+      "scorable": true
+    },
+    {
+      "id": "n130",
+      "trackId": "lead",
+      "startUs": 65900000,
+      "endUs": 66080000,
+      "pitchMidi": 65,
+      "tuningCents": 5.9,
+      "scorable": true
+    },
+    {
+      "id": "n131",
+      "trackId": "lead",
+      "startUs": 66080000,
+      "endUs": 66220000,
+      "pitchMidi": 70,
+      "tuningCents": 41.3,
+      "scorable": true
+    },
+    {
+      "id": "n132",
+      "trackId": "lead",
+      "startUs": 66260000,
+      "endUs": 66890000,
+      "pitchMidi": 71,
+      "tuningCents": -13.9,
+      "scorable": true
+    },
+    {
+      "id": "n133",
+      "trackId": "lead",
+      "startUs": 66990000,
+      "endUs": 67310000,
+      "pitchMidi": 66,
+      "tuningCents": -21.3,
+      "scorable": true
+    },
+    {
+      "id": "n134",
+      "trackId": "lead",
+      "startUs": 67380000,
+      "endUs": 67770000,
+      "pitchMidi": 68,
+      "tuningCents": -32.6,
+      "scorable": true
+    },
+    {
+      "id": "n135",
+      "trackId": "lead",
+      "startUs": 67770000,
+      "endUs": 68370000,
+      "pitchMidi": 68,
+      "tuningCents": 10.0,
+      "scorable": true
+    },
+    {
+      "id": "n136",
+      "trackId": "lead",
+      "startUs": 68710000,
+      "endUs": 69010000,
+      "pitchMidi": 65,
+      "tuningCents": 9.2,
+      "scorable": true
+    },
+    {
+      "id": "n137",
+      "trackId": "lead",
+      "startUs": 69070000,
+      "endUs": 69420000,
+      "pitchMidi": 68,
+      "tuningCents": -23.5,
+      "scorable": true
+    },
+    {
+      "id": "n138",
+      "trackId": "lead",
+      "startUs": 69420000,
+      "endUs": 69480000,
+      "pitchMidi": 65,
+      "tuningCents": -15.3,
+      "scorable": true
+    },
+    {
+      "id": "n139",
+      "trackId": "lead",
+      "startUs": 69480000,
+      "endUs": 69990000,
+      "pitchMidi": 68,
+      "tuningCents": -7.6,
+      "scorable": true
+    },
+    {
+      "id": "n140",
+      "trackId": "lead",
+      "startUs": 70040000,
+      "endUs": 70360000,
+      "pitchMidi": 68,
+      "tuningCents": 1.5,
+      "scorable": true
+    },
+    {
+      "id": "n141",
+      "trackId": "lead",
+      "startUs": 70360000,
+      "endUs": 70430000,
+      "pitchMidi": 62,
+      "tuningCents": 1.6,
+      "scorable": true
+    },
+    {
+      "id": "n142",
+      "trackId": "lead",
+      "startUs": 70430000,
+      "endUs": 70740000,
+      "pitchMidi": 68,
+      "tuningCents": -10.5,
+      "scorable": true
+    },
+    {
+      "id": "n143",
+      "trackId": "lead",
+      "startUs": 70740000,
+      "endUs": 70800000,
+      "pitchMidi": 64,
+      "tuningCents": -22.5,
+      "scorable": true
+    },
+    {
+      "id": "n144",
+      "trackId": "lead",
+      "startUs": 70810000,
+      "endUs": 70930000,
+      "pitchMidi": 60,
+      "tuningCents": 33.6,
+      "scorable": true
+    },
+    {
+      "id": "n145",
+      "trackId": "lead",
+      "startUs": 71000000,
+      "endUs": 71410000,
+      "pitchMidi": 61,
+      "tuningCents": -8.1,
+      "scorable": true
+    },
+    {
+      "id": "n146",
+      "trackId": "lead",
+      "startUs": 71590000,
+      "endUs": 71660000,
+      "pitchMidi": 61,
+      "tuningCents": -16.8,
+      "scorable": true
+    },
+    {
+      "id": "n147",
+      "trackId": "lead",
+      "startUs": 71750000,
+      "endUs": 71870000,
+      "pitchMidi": 68,
+      "tuningCents": -44.9,
+      "scorable": true
+    },
+    {
+      "id": "n148",
+      "trackId": "lead",
+      "startUs": 71970000,
+      "endUs": 72650000,
+      "pitchMidi": 65,
+      "tuningCents": 47.7,
+      "scorable": true
+    },
+    {
+      "id": "n149",
+      "trackId": "lead",
+      "startUs": 72750000,
+      "endUs": 73070000,
+      "pitchMidi": 63,
+      "tuningCents": 17.3,
+      "scorable": true
+    },
+    {
+      "id": "n150",
+      "trackId": "lead",
+      "startUs": 73070000,
+      "endUs": 73130000,
+      "pitchMidi": 67,
+      "tuningCents": -39.7,
+      "scorable": true
+    },
+    {
+      "id": "n151",
+      "trackId": "lead",
+      "startUs": 73130000,
+      "endUs": 73800000,
+      "pitchMidi": 72,
+      "tuningCents": -36.7,
+      "scorable": true
+    },
+    {
+      "id": "n152",
+      "trackId": "lead",
+      "startUs": 73840000,
+      "endUs": 74470000,
+      "pitchMidi": 72,
+      "tuningCents": -0.8,
+      "scorable": true
+    },
+    {
+      "id": "n153",
+      "trackId": "lead",
+      "startUs": 74760000,
+      "endUs": 75130000,
+      "pitchMidi": 70,
+      "tuningCents": 4.6,
+      "scorable": true
+    },
+    {
+      "id": "n154",
+      "trackId": "lead",
+      "startUs": 75180000,
+      "endUs": 76150000,
+      "pitchMidi": 72,
+      "tuningCents": -6.3,
+      "scorable": true
+    },
+    {
+      "id": "n155",
+      "trackId": "lead",
+      "startUs": 76150000,
+      "endUs": 76990000,
+      "pitchMidi": 72,
+      "tuningCents": -2.4,
+      "scorable": true
+    },
+    {
+      "id": "n156",
+      "trackId": "lead",
+      "startUs": 77070000,
+      "endUs": 77790000,
+      "pitchMidi": 74,
+      "tuningCents": 8.5,
+      "scorable": true
+    },
+    {
+      "id": "n157",
+      "trackId": "lead",
+      "startUs": 78020000,
+      "endUs": 78150000,
+      "pitchMidi": 65,
+      "tuningCents": -5.2,
+      "scorable": true
+    },
+    {
+      "id": "n158",
+      "trackId": "lead",
+      "startUs": 78210000,
+      "endUs": 78340000,
+      "pitchMidi": 66,
+      "tuningCents": -12.9,
+      "scorable": true
+    },
+    {
+      "id": "n159",
+      "trackId": "lead",
+      "startUs": 78430000,
+      "endUs": 78740000,
+      "pitchMidi": 66,
+      "tuningCents": -20.0,
+      "scorable": true
+    },
+    {
+      "id": "n160",
+      "trackId": "lead",
+      "startUs": 78820000,
+      "endUs": 79060000,
+      "pitchMidi": 68,
+      "tuningCents": -1.2,
+      "scorable": true
+    },
+    {
+      "id": "n161",
+      "trackId": "lead",
+      "startUs": 79170000,
+      "endUs": 79870000,
+      "pitchMidi": 69,
+      "tuningCents": 5.4,
+      "scorable": true
+    },
+    {
+      "id": "n162",
+      "trackId": "lead",
+      "startUs": 79910000,
+      "endUs": 80020000,
+      "pitchMidi": 69,
+      "tuningCents": -47.1,
+      "scorable": true
+    },
+    {
+      "id": "n163",
+      "trackId": "lead",
+      "startUs": 80020000,
+      "endUs": 80080000,
+      "pitchMidi": 65,
+      "tuningCents": 20.7,
+      "scorable": true
+    },
+    {
+      "id": "n164",
+      "trackId": "lead",
+      "startUs": 80110000,
+      "endUs": 80820000,
+      "pitchMidi": 65,
+      "tuningCents": 15.8,
+      "scorable": true
+    },
+    {
+      "id": "n165",
+      "trackId": "lead",
+      "startUs": 81030000,
+      "endUs": 81170000,
+      "pitchMidi": 63,
+      "tuningCents": 11.7,
+      "scorable": true
+    },
+    {
+      "id": "n166",
+      "trackId": "lead",
+      "startUs": 81270000,
+      "endUs": 81650000,
+      "pitchMidi": 65,
+      "tuningCents": -8.3,
+      "scorable": true
+    },
+    {
+      "id": "n167",
+      "trackId": "lead",
+      "startUs": 81650000,
+      "endUs": 81960000,
+      "pitchMidi": 68,
+      "tuningCents": -20.4,
+      "scorable": true
+    },
+    {
+      "id": "n168",
+      "trackId": "lead",
+      "startUs": 82020000,
+      "endUs": 82380000,
+      "pitchMidi": 72,
+      "tuningCents": 49.1,
+      "scorable": true
+    },
+    {
+      "id": "n169",
+      "trackId": "lead",
+      "startUs": 82380000,
+      "endUs": 82700000,
+      "pitchMidi": 70,
+      "tuningCents": 2.5,
+      "scorable": true
+    },
+    {
+      "id": "n170",
+      "trackId": "lead",
+      "startUs": 82780000,
+      "endUs": 83900000,
+      "pitchMidi": 72,
+      "tuningCents": 36.2,
+      "scorable": true
+    },
+    {
+      "id": "n171",
+      "trackId": "lead",
+      "startUs": 83910000,
+      "endUs": 84060000,
+      "pitchMidi": 72,
+      "tuningCents": -9.9,
+      "scorable": true
+    },
+    {
+      "id": "n172",
+      "trackId": "lead",
+      "startUs": 84110000,
+      "endUs": 88000000,
+      "pitchMidi": 73,
+      "tuningCents": -1.9,
+      "scorable": true
+    },
+    {
+      "id": "n173",
+      "trackId": "lead",
+      "startUs": 88050000,
+      "endUs": 88180000,
+      "pitchMidi": 73,
+      "tuningCents": 8.9,
+      "scorable": true
+    },
+    {
+      "id": "n174",
+      "trackId": "lead",
+      "startUs": 88180000,
+      "endUs": 88290000,
+      "pitchMidi": 68,
+      "tuningCents": -10.6,
+      "scorable": true
+    },
+    {
+      "id": "n175",
+      "trackId": "lead",
+      "startUs": 88290000,
+      "endUs": 88410000,
+      "pitchMidi": 72,
+      "tuningCents": 28.0,
+      "scorable": true
+    },
+    {
+      "id": "n176",
+      "trackId": "lead",
+      "startUs": 88410000,
+      "endUs": 88470000,
+      "pitchMidi": 72,
+      "tuningCents": -22.4,
+      "scorable": true
+    },
+    {
+      "id": "n177",
+      "trackId": "lead",
+      "startUs": 92390000,
+      "endUs": 92460000,
+      "pitchMidi": 71,
+      "tuningCents": 47.1,
+      "scorable": true
+    },
+    {
+      "id": "n178",
+      "trackId": "lead",
+      "startUs": 100790000,
+      "endUs": 101510000,
+      "pitchMidi": 61,
+      "tuningCents": -11.3,
+      "scorable": true
+    },
+    {
+      "id": "n179",
+      "trackId": "lead",
+      "startUs": 101580000,
+      "endUs": 101750000,
+      "pitchMidi": 61,
+      "tuningCents": 0.6,
+      "scorable": true
+    },
+    {
+      "id": "n180",
+      "trackId": "lead",
+      "startUs": 101750000,
+      "endUs": 101810000,
+      "pitchMidi": 59,
+      "tuningCents": 26.3,
+      "scorable": true
+    },
+    {
+      "id": "n181",
+      "trackId": "lead",
+      "startUs": 101810000,
+      "endUs": 102120000,
+      "pitchMidi": 61,
+      "tuningCents": -20.6,
+      "scorable": true
+    },
+    {
+      "id": "n182",
+      "trackId": "lead",
+      "startUs": 102150000,
+      "endUs": 102520000,
+      "pitchMidi": 61,
+      "tuningCents": -6.7,
+      "scorable": true
+    },
+    {
+      "id": "n183",
+      "trackId": "lead",
+      "startUs": 102520000,
+      "endUs": 102670000,
+      "pitchMidi": 62,
+      "tuningCents": 32.9,
+      "scorable": true
+    },
+    {
+      "id": "n184",
+      "trackId": "lead",
+      "startUs": 102750000,
+      "endUs": 102880000,
+      "pitchMidi": 65,
+      "tuningCents": -12.8,
+      "scorable": true
+    },
+    {
+      "id": "n185",
+      "trackId": "lead",
+      "startUs": 102880000,
+      "endUs": 103050000,
+      "pitchMidi": 66,
+      "tuningCents": 7.1,
+      "scorable": true
+    },
+    {
+      "id": "n186",
+      "trackId": "lead",
+      "startUs": 103050000,
+      "endUs": 103110000,
+      "pitchMidi": 62,
+      "tuningCents": -10.7,
+      "scorable": true
+    },
+    {
+      "id": "n187",
+      "trackId": "lead",
+      "startUs": 103110000,
+      "endUs": 103470000,
+      "pitchMidi": 65,
+      "tuningCents": 8.6,
+      "scorable": true
+    },
+    {
+      "id": "n188",
+      "trackId": "lead",
+      "startUs": 103670000,
+      "endUs": 104180000,
+      "pitchMidi": 61,
+      "tuningCents": 9.4,
+      "scorable": true
+    },
+    {
+      "id": "n189",
+      "trackId": "lead",
+      "startUs": 104230000,
+      "endUs": 104600000,
+      "pitchMidi": 65,
+      "tuningCents": 11.7,
+      "scorable": true
+    },
+    {
+      "id": "n190",
+      "trackId": "lead",
+      "startUs": 104600000,
+      "endUs": 104970000,
+      "pitchMidi": 65,
+      "tuningCents": -0.1,
+      "scorable": true
+    },
+    {
+      "id": "n191",
+      "trackId": "lead",
+      "startUs": 104970000,
+      "endUs": 105690000,
+      "pitchMidi": 60,
+      "tuningCents": 6.3,
+      "scorable": true
+    },
+    {
+      "id": "n192",
+      "trackId": "lead",
+      "startUs": 105690000,
+      "endUs": 105750000,
+      "pitchMidi": 61,
+      "tuningCents": -47.1,
+      "scorable": true
+    },
+    {
+      "id": "n193",
+      "trackId": "lead",
+      "startUs": 105750000,
+      "endUs": 105910000,
+      "pitchMidi": 65,
+      "tuningCents": -3.6,
+      "scorable": true
+    },
+    {
+      "id": "n194",
+      "trackId": "lead",
+      "startUs": 105910000,
+      "endUs": 106530000,
+      "pitchMidi": 61,
+      "tuningCents": 2.6,
+      "scorable": true
+    },
+    {
+      "id": "n195",
+      "trackId": "lead",
+      "startUs": 106530000,
+      "endUs": 106590000,
+      "pitchMidi": 60,
+      "tuningCents": -49.9,
+      "scorable": true
+    },
+    {
+      "id": "n196",
+      "trackId": "lead",
+      "startUs": 106920000,
+      "endUs": 107460000,
+      "pitchMidi": 61,
+      "tuningCents": -11.7,
+      "scorable": true
+    },
+    {
+      "id": "n197",
+      "trackId": "lead",
+      "startUs": 107460000,
+      "endUs": 107630000,
+      "pitchMidi": 60,
+      "tuningCents": -24.1,
+      "scorable": true
+    },
+    {
+      "id": "n198",
+      "trackId": "lead",
+      "startUs": 107670000,
+      "endUs": 107830000,
+      "pitchMidi": 61,
+      "tuningCents": 12.5,
+      "scorable": true
+    },
+    {
+      "id": "n199",
+      "trackId": "lead",
+      "startUs": 107830000,
+      "endUs": 108400000,
+      "pitchMidi": 61,
+      "tuningCents": -25.4,
+      "scorable": true
+    },
+    {
+      "id": "n200",
+      "trackId": "lead",
+      "startUs": 108400000,
+      "endUs": 108760000,
+      "pitchMidi": 61,
+      "tuningCents": -7.6,
+      "scorable": true
+    },
+    {
+      "id": "n201",
+      "trackId": "lead",
+      "startUs": 108790000,
+      "endUs": 109170000,
+      "pitchMidi": 56,
+      "tuningCents": 0.5,
+      "scorable": true
+    },
+    {
+      "id": "n202",
+      "trackId": "lead",
+      "startUs": 109170000,
+      "endUs": 109230000,
+      "pitchMidi": 62,
+      "tuningCents": -36.6,
+      "scorable": true
+    },
+    {
+      "id": "n203",
+      "trackId": "lead",
+      "startUs": 109230000,
+      "endUs": 109720000,
+      "pitchMidi": 65,
+      "tuningCents": -18.1,
+      "scorable": true
+    },
+    {
+      "id": "n204",
+      "trackId": "lead",
+      "startUs": 109720000,
+      "endUs": 109870000,
+      "pitchMidi": 65,
+      "tuningCents": -17.1,
+      "scorable": true
+    },
+    {
+      "id": "n205",
+      "trackId": "lead",
+      "startUs": 109960000,
+      "endUs": 110260000,
+      "pitchMidi": 65,
+      "tuningCents": 16.5,
+      "scorable": true
+    },
+    {
+      "id": "n206",
+      "trackId": "lead",
+      "startUs": 110300000,
+      "endUs": 110430000,
+      "pitchMidi": 66,
+      "tuningCents": -0.2,
+      "scorable": true
+    },
+    {
+      "id": "n207",
+      "trackId": "lead",
+      "startUs": 110500000,
+      "endUs": 111790000,
+      "pitchMidi": 61,
+      "tuningCents": 21.2,
+      "scorable": true
+    },
+    {
+      "id": "n208",
+      "trackId": "lead",
+      "startUs": 111790000,
+      "endUs": 111850000,
+      "pitchMidi": 58,
+      "tuningCents": 41.8,
+      "scorable": true
+    },
+    {
+      "id": "n209",
+      "trackId": "lead",
+      "startUs": 111850000,
+      "endUs": 112810000,
+      "pitchMidi": 61,
+      "tuningCents": 12.4,
+      "scorable": true
+    },
+    {
+      "id": "n210",
+      "trackId": "lead",
+      "startUs": 112990000,
+      "endUs": 113070000,
+      "pitchMidi": 62,
+      "tuningCents": 29.3,
+      "scorable": true
+    },
+    {
+      "id": "n211",
+      "trackId": "lead",
+      "startUs": 113160000,
+      "endUs": 113850000,
+      "pitchMidi": 65,
+      "tuningCents": 13.9,
+      "scorable": true
+    },
+    {
+      "id": "n212",
+      "trackId": "lead",
+      "startUs": 113900000,
+      "endUs": 114220000,
+      "pitchMidi": 65,
+      "tuningCents": 2.8,
+      "scorable": true
+    },
+    {
+      "id": "n213",
+      "trackId": "lead",
+      "startUs": 114290000,
+      "endUs": 114540000,
+      "pitchMidi": 60,
+      "tuningCents": 5.0,
+      "scorable": true
+    },
+    {
+      "id": "n214",
+      "trackId": "lead",
+      "startUs": 114540000,
+      "endUs": 115560000,
+      "pitchMidi": 61,
+      "tuningCents": 0.5,
+      "scorable": true
+    },
+    {
+      "id": "n215",
+      "trackId": "lead",
+      "startUs": 116010000,
+      "endUs": 116130000,
+      "pitchMidi": 61,
+      "tuningCents": -15.5,
+      "scorable": true
+    },
+    {
+      "id": "n216",
+      "trackId": "lead",
+      "startUs": 116190000,
+      "endUs": 116510000,
+      "pitchMidi": 64,
+      "tuningCents": -10.2,
+      "scorable": true
+    },
+    {
+      "id": "n217",
+      "trackId": "lead",
+      "startUs": 116580000,
+      "endUs": 116900000,
+      "pitchMidi": 67,
+      "tuningCents": 45.8,
+      "scorable": true
+    },
+    {
+      "id": "n218",
+      "trackId": "lead",
+      "startUs": 116940000,
+      "endUs": 117290000,
+      "pitchMidi": 65,
+      "tuningCents": 2.5,
+      "scorable": true
+    },
+    {
+      "id": "n219",
+      "trackId": "lead",
+      "startUs": 117290000,
+      "endUs": 118110000,
+      "pitchMidi": 60,
+      "tuningCents": 3.8,
+      "scorable": true
+    },
+    {
+      "id": "n220",
+      "trackId": "lead",
+      "startUs": 118110000,
+      "endUs": 118210000,
+      "pitchMidi": 61,
+      "tuningCents": 41.9,
+      "scorable": true
+    },
+    {
+      "id": "n221",
+      "trackId": "lead",
+      "startUs": 118210000,
+      "endUs": 118420000,
+      "pitchMidi": 63,
+      "tuningCents": 12.0,
+      "scorable": true
+    },
+    {
+      "id": "n222",
+      "trackId": "lead",
+      "startUs": 118420000,
+      "endUs": 118500000,
+      "pitchMidi": 59,
+      "tuningCents": 22.8,
+      "scorable": true
+    },
+    {
+      "id": "n223",
+      "trackId": "lead",
+      "startUs": 118500000,
+      "endUs": 118850000,
+      "pitchMidi": 61,
+      "tuningCents": 1.2,
+      "scorable": true
+    },
+    {
+      "id": "n224",
+      "trackId": "lead",
+      "startUs": 119050000,
+      "endUs": 119210000,
+      "pitchMidi": 61,
+      "tuningCents": -6.2,
+      "scorable": true
+    },
+    {
+      "id": "n225",
+      "trackId": "lead",
+      "startUs": 119210000,
+      "endUs": 119270000,
+      "pitchMidi": 65,
+      "tuningCents": -20.3,
+      "scorable": true
+    },
+    {
+      "id": "n226",
+      "trackId": "lead",
+      "startUs": 119270000,
+      "endUs": 119350000,
+      "pitchMidi": 64,
+      "tuningCents": -19.4,
+      "scorable": true
+    },
+    {
+      "id": "n227",
+      "trackId": "lead",
+      "startUs": 119350000,
+      "endUs": 119550000,
+      "pitchMidi": 66,
+      "tuningCents": -34.9,
+      "scorable": true
+    },
+    {
+      "id": "n228",
+      "trackId": "lead",
+      "startUs": 119550000,
+      "endUs": 119750000,
+      "pitchMidi": 68,
+      "tuningCents": -0.4,
+      "scorable": true
+    },
+    {
+      "id": "n229",
+      "trackId": "lead",
+      "startUs": 119750000,
+      "endUs": 119900000,
+      "pitchMidi": 66,
+      "tuningCents": 3.9,
+      "scorable": true
+    },
+    {
+      "id": "n230",
+      "trackId": "lead",
+      "startUs": 119980000,
+      "endUs": 120230000,
+      "pitchMidi": 66,
+      "tuningCents": -4.2,
+      "scorable": true
+    },
+    {
+      "id": "n231",
+      "trackId": "lead",
+      "startUs": 120230000,
+      "endUs": 120480000,
+      "pitchMidi": 65,
+      "tuningCents": -0.6,
+      "scorable": true
+    },
+    {
+      "id": "n232",
+      "trackId": "lead",
+      "startUs": 120530000,
+      "endUs": 120720000,
+      "pitchMidi": 66,
+      "tuningCents": 1.0,
+      "scorable": true
+    },
+    {
+      "id": "n233",
+      "trackId": "lead",
+      "startUs": 120720000,
+      "endUs": 121020000,
+      "pitchMidi": 72,
+      "tuningCents": -28.9,
+      "scorable": true
+    },
+    {
+      "id": "n234",
+      "trackId": "lead",
+      "startUs": 121020000,
+      "endUs": 121080000,
+      "pitchMidi": 66,
+      "tuningCents": 19.1,
+      "scorable": true
+    },
+    {
+      "id": "n235",
+      "trackId": "lead",
+      "startUs": 121080000,
+      "endUs": 121760000,
+      "pitchMidi": 68,
+      "tuningCents": 12.2,
+      "scorable": true
+    },
+    {
+      "id": "n236",
+      "trackId": "lead",
+      "startUs": 121760000,
+      "endUs": 121820000,
+      "pitchMidi": 64,
+      "tuningCents": 39.3,
+      "scorable": true
+    },
+    {
+      "id": "n237",
+      "trackId": "lead",
+      "startUs": 122050000,
+      "endUs": 122200000,
+      "pitchMidi": 63,
+      "tuningCents": -37.6,
+      "scorable": true
+    },
+    {
+      "id": "n238",
+      "trackId": "lead",
+      "startUs": 122280000,
+      "endUs": 122520000,
+      "pitchMidi": 69,
+      "tuningCents": -21.1,
+      "scorable": true
+    },
+    {
+      "id": "n239",
+      "trackId": "lead",
+      "startUs": 122570000,
+      "endUs": 123260000,
+      "pitchMidi": 66,
+      "tuningCents": 16.4,
+      "scorable": true
+    },
+    {
+      "id": "n240",
+      "trackId": "lead",
+      "startUs": 123310000,
+      "endUs": 123560000,
+      "pitchMidi": 67,
+      "tuningCents": 39.7,
+      "scorable": true
+    },
+    {
+      "id": "n241",
+      "trackId": "lead",
+      "startUs": 123600000,
+      "endUs": 124880000,
+      "pitchMidi": 71,
+      "tuningCents": -1.7,
+      "scorable": true
+    },
+    {
+      "id": "n242",
+      "trackId": "lead",
+      "startUs": 124880000,
+      "endUs": 124940000,
+      "pitchMidi": 66,
+      "tuningCents": 8.4,
+      "scorable": true
+    },
+    {
+      "id": "n243",
+      "trackId": "lead",
+      "startUs": 124940000,
+      "endUs": 125040000,
+      "pitchMidi": 71,
+      "tuningCents": 3.7,
+      "scorable": true
+    },
+    {
+      "id": "n244",
+      "trackId": "lead",
+      "startUs": 125040000,
+      "endUs": 125160000,
+      "pitchMidi": 66,
+      "tuningCents": -1.9,
+      "scorable": true
+    },
+    {
+      "id": "n245",
+      "trackId": "lead",
+      "startUs": 125160000,
+      "endUs": 125240000,
+      "pitchMidi": 65,
+      "tuningCents": 37.3,
+      "scorable": true
+    },
+    {
+      "id": "n246",
+      "trackId": "lead",
+      "startUs": 126450000,
+      "endUs": 127310000,
+      "pitchMidi": 66,
+      "tuningCents": 40.1,
+      "scorable": true
+    },
+    {
+      "id": "n247",
+      "trackId": "lead",
+      "startUs": 127390000,
+      "endUs": 127670000,
+      "pitchMidi": 68,
+      "tuningCents": -8.8,
+      "scorable": true
+    },
+    {
+      "id": "n248",
+      "trackId": "lead",
+      "startUs": 127770000,
+      "endUs": 128080000,
+      "pitchMidi": 68,
+      "tuningCents": -23.3,
+      "scorable": true
+    },
+    {
+      "id": "n249",
+      "trackId": "lead",
+      "startUs": 128080000,
+      "endUs": 128150000,
+      "pitchMidi": 66,
+      "tuningCents": -39.3,
+      "scorable": true
+    },
+    {
+      "id": "n250",
+      "trackId": "lead",
+      "startUs": 128150000,
+      "endUs": 128470000,
+      "pitchMidi": 68,
+      "tuningCents": -15.3,
+      "scorable": true
+    },
+    {
+      "id": "n251",
+      "trackId": "lead",
+      "startUs": 128470000,
+      "endUs": 128530000,
+      "pitchMidi": 64,
+      "tuningCents": -43.5,
+      "scorable": true
+    },
+    {
+      "id": "n252",
+      "trackId": "lead",
+      "startUs": 128530000,
+      "endUs": 128680000,
+      "pitchMidi": 61,
+      "tuningCents": 7.1,
+      "scorable": true
+    },
+    {
+      "id": "n253",
+      "trackId": "lead",
+      "startUs": 128680000,
+      "endUs": 128740000,
+      "pitchMidi": 59,
+      "tuningCents": -13.5,
+      "scorable": true
+    },
+    {
+      "id": "n254",
+      "trackId": "lead",
+      "startUs": 128740000,
+      "endUs": 129100000,
+      "pitchMidi": 61,
+      "tuningCents": 2.4,
+      "scorable": true
+    },
+    {
+      "id": "n255",
+      "trackId": "lead",
+      "startUs": 129270000,
+      "endUs": 129470000,
+      "pitchMidi": 61,
+      "tuningCents": -26.1,
+      "scorable": true
+    },
+    {
+      "id": "n256",
+      "trackId": "lead",
+      "startUs": 129470000,
+      "endUs": 129690000,
+      "pitchMidi": 68,
+      "tuningCents": -37.2,
+      "scorable": true
+    },
+    {
+      "id": "n257",
+      "trackId": "lead",
+      "startUs": 129690000,
+      "endUs": 130250000,
+      "pitchMidi": 65,
+      "tuningCents": -3.3,
+      "scorable": true
+    },
+    {
+      "id": "n258",
+      "trackId": "lead",
+      "startUs": 130250000,
+      "endUs": 130390000,
+      "pitchMidi": 66,
+      "tuningCents": 1.5,
+      "scorable": true
+    },
+    {
+      "id": "n259",
+      "trackId": "lead",
+      "startUs": 130390000,
+      "endUs": 130750000,
+      "pitchMidi": 63,
+      "tuningCents": 4.9,
+      "scorable": true
+    },
+    {
+      "id": "n260",
+      "trackId": "lead",
+      "startUs": 130800000,
+      "endUs": 131690000,
+      "pitchMidi": 71,
+      "tuningCents": 32.2,
+      "scorable": true
+    },
+    {
+      "id": "n261",
+      "trackId": "lead",
+      "startUs": 131770000,
+      "endUs": 132230000,
+      "pitchMidi": 72,
+      "tuningCents": 47.7,
+      "scorable": true
+    },
+    {
+      "id": "n262",
+      "trackId": "lead",
+      "startUs": 132480000,
+      "endUs": 132540000,
+      "pitchMidi": 68,
+      "tuningCents": -1.2,
+      "scorable": true
+    },
+    {
+      "id": "n263",
+      "trackId": "lead",
+      "startUs": 132540000,
+      "endUs": 133260000,
+      "pitchMidi": 72,
+      "tuningCents": -0.7,
+      "scorable": true
+    },
+    {
+      "id": "n264",
+      "trackId": "lead",
+      "startUs": 133290000,
+      "endUs": 133440000,
+      "pitchMidi": 72,
+      "tuningCents": -8.6,
+      "scorable": true
+    },
+    {
+      "id": "n265",
+      "trackId": "lead",
+      "startUs": 133510000,
+      "endUs": 133830000,
+      "pitchMidi": 70,
+      "tuningCents": -0.5,
+      "scorable": true
+    },
+    {
+      "id": "n266",
+      "trackId": "lead",
+      "startUs": 133880000,
+      "endUs": 134760000,
+      "pitchMidi": 72,
+      "tuningCents": -10.5,
+      "scorable": true
+    },
+    {
+      "id": "n267",
+      "trackId": "lead",
+      "startUs": 134760000,
+      "endUs": 135140000,
+      "pitchMidi": 74,
+      "tuningCents": 29.5,
+      "scorable": true
+    },
+    {
+      "id": "n268",
+      "trackId": "lead",
+      "startUs": 135140000,
+      "endUs": 135540000,
+      "pitchMidi": 73,
+      "tuningCents": -24.1,
+      "scorable": true
+    },
+    {
+      "id": "n269",
+      "trackId": "lead",
+      "startUs": 135770000,
+      "endUs": 135870000,
+      "pitchMidi": 65,
+      "tuningCents": -39.3,
+      "scorable": true
+    },
+    {
+      "id": "n270",
+      "trackId": "lead",
+      "startUs": 135940000,
+      "endUs": 136420000,
+      "pitchMidi": 71,
+      "tuningCents": -27.1,
+      "scorable": true
+    },
+    {
+      "id": "n271",
+      "trackId": "lead",
+      "startUs": 136500000,
+      "endUs": 136770000,
+      "pitchMidi": 70,
+      "tuningCents": 0.4,
+      "scorable": true
+    },
+    {
+      "id": "n272",
+      "trackId": "lead",
+      "startUs": 136880000,
+      "endUs": 137590000,
+      "pitchMidi": 66,
+      "tuningCents": 22.7,
+      "scorable": true
+    },
+    {
+      "id": "n273",
+      "trackId": "lead",
+      "startUs": 137620000,
+      "endUs": 137820000,
+      "pitchMidi": 70,
+      "tuningCents": -6.7,
+      "scorable": true
+    },
+    {
+      "id": "n274",
+      "trackId": "lead",
+      "startUs": 137820000,
+      "endUs": 138230000,
+      "pitchMidi": 68,
+      "tuningCents": -2.7,
+      "scorable": true
+    },
+    {
+      "id": "n275",
+      "trackId": "lead",
+      "startUs": 138590000,
+      "endUs": 138890000,
+      "pitchMidi": 65,
+      "tuningCents": 1.2,
+      "scorable": true
+    },
+    {
+      "id": "n276",
+      "trackId": "lead",
+      "startUs": 138950000,
+      "endUs": 139100000,
+      "pitchMidi": 66,
+      "tuningCents": -8.3,
+      "scorable": true
+    },
+    {
+      "id": "n277",
+      "trackId": "lead",
+      "startUs": 139100000,
+      "endUs": 139280000,
+      "pitchMidi": 68,
+      "tuningCents": 0.2,
+      "scorable": true
+    },
+    {
+      "id": "n278",
+      "trackId": "lead",
+      "startUs": 139280000,
+      "endUs": 139340000,
+      "pitchMidi": 65,
+      "tuningCents": -29.0,
+      "scorable": true
+    },
+    {
+      "id": "n279",
+      "trackId": "lead",
+      "startUs": 139340000,
+      "endUs": 139860000,
+      "pitchMidi": 68,
+      "tuningCents": -4.9,
+      "scorable": true
+    },
+    {
+      "id": "n280",
+      "trackId": "lead",
+      "startUs": 139930000,
+      "endUs": 140250000,
+      "pitchMidi": 68,
+      "tuningCents": -0.8,
+      "scorable": true
+    },
+    {
+      "id": "n281",
+      "trackId": "lead",
+      "startUs": 140300000,
+      "endUs": 140630000,
+      "pitchMidi": 68,
+      "tuningCents": -17.1,
+      "scorable": true
+    },
+    {
+      "id": "n282",
+      "trackId": "lead",
+      "startUs": 140690000,
+      "endUs": 140790000,
+      "pitchMidi": 60,
+      "tuningCents": -11.0,
+      "scorable": true
+    },
+    {
+      "id": "n283",
+      "trackId": "lead",
+      "startUs": 140880000,
+      "endUs": 141250000,
+      "pitchMidi": 61,
+      "tuningCents": -9.3,
+      "scorable": true
+    },
+    {
+      "id": "n284",
+      "trackId": "lead",
+      "startUs": 141460000,
+      "endUs": 141650000,
+      "pitchMidi": 61,
+      "tuningCents": 13.9,
+      "scorable": true
+    },
+    {
+      "id": "n285",
+      "trackId": "lead",
+      "startUs": 141650000,
+      "endUs": 141800000,
+      "pitchMidi": 68,
+      "tuningCents": -43.6,
+      "scorable": true
+    },
+    {
+      "id": "n286",
+      "trackId": "lead",
+      "startUs": 141800000,
+      "endUs": 141970000,
+      "pitchMidi": 66,
+      "tuningCents": -22.6,
+      "scorable": true
+    },
+    {
+      "id": "n287",
+      "trackId": "lead",
+      "startUs": 142020000,
+      "endUs": 142520000,
+      "pitchMidi": 65,
+      "tuningCents": 8.2,
+      "scorable": true
+    },
+    {
+      "id": "n288",
+      "trackId": "lead",
+      "startUs": 142620000,
+      "endUs": 142930000,
+      "pitchMidi": 63,
+      "tuningCents": 2.1,
+      "scorable": true
+    },
+    {
+      "id": "n289",
+      "trackId": "lead",
+      "startUs": 142930000,
+      "endUs": 142990000,
+      "pitchMidi": 66,
+      "tuningCents": -5.8,
+      "scorable": true
+    },
+    {
+      "id": "n290",
+      "trackId": "lead",
+      "startUs": 142990000,
+      "endUs": 143270000,
+      "pitchMidi": 72,
+      "tuningCents": -39.1,
+      "scorable": true
+    },
+    {
+      "id": "n291",
+      "trackId": "lead",
+      "startUs": 143270000,
+      "endUs": 143330000,
+      "pitchMidi": 70,
+      "tuningCents": -7.4,
+      "scorable": true
+    },
+    {
+      "id": "n292",
+      "trackId": "lead",
+      "startUs": 143340000,
+      "endUs": 143910000,
+      "pitchMidi": 71,
+      "tuningCents": -46.5,
+      "scorable": true
+    },
+    {
+      "id": "n293",
+      "trackId": "lead",
+      "startUs": 143910000,
+      "endUs": 144330000,
+      "pitchMidi": 73,
+      "tuningCents": -26.1,
+      "scorable": true
+    },
+    {
+      "id": "n294",
+      "trackId": "lead",
+      "startUs": 144660000,
+      "endUs": 144810000,
+      "pitchMidi": 70,
+      "tuningCents": -6.1,
+      "scorable": true
+    },
+    {
+      "id": "n295",
+      "trackId": "lead",
+      "startUs": 144880000,
+      "endUs": 145390000,
+      "pitchMidi": 72,
+      "tuningCents": 10.0,
+      "scorable": true
+    },
+    {
+      "id": "n296",
+      "trackId": "lead",
+      "startUs": 145430000,
+      "endUs": 145960000,
+      "pitchMidi": 70,
+      "tuningCents": 10.2,
+      "scorable": true
+    },
+    {
+      "id": "n297",
+      "trackId": "lead",
+      "startUs": 146010000,
+      "endUs": 146330000,
+      "pitchMidi": 72,
+      "tuningCents": -37.5,
+      "scorable": true
+    },
+    {
+      "id": "n298",
+      "trackId": "lead",
+      "startUs": 146390000,
+      "endUs": 146890000,
+      "pitchMidi": 72,
+      "tuningCents": 2.4,
+      "scorable": true
+    },
+    {
+      "id": "n299",
+      "trackId": "lead",
+      "startUs": 146960000,
+      "endUs": 147680000,
+      "pitchMidi": 74,
+      "tuningCents": -19.7,
+      "scorable": true
+    },
+    {
+      "id": "n300",
+      "trackId": "lead",
+      "startUs": 147910000,
+      "endUs": 148010000,
+      "pitchMidi": 65,
+      "tuningCents": -22.9,
+      "scorable": true
+    },
+    {
+      "id": "n301",
+      "trackId": "lead",
+      "startUs": 148090000,
+      "endUs": 148670000,
+      "pitchMidi": 66,
+      "tuningCents": -1.3,
+      "scorable": true
+    },
+    {
+      "id": "n302",
+      "trackId": "lead",
+      "startUs": 148670000,
+      "endUs": 149020000,
+      "pitchMidi": 68,
+      "tuningCents": -21.1,
+      "scorable": true
+    },
+    {
+      "id": "n303",
+      "trackId": "lead",
+      "startUs": 149020000,
+      "endUs": 149310000,
+      "pitchMidi": 69,
+      "tuningCents": 39.7,
+      "scorable": true
+    },
+    {
+      "id": "n304",
+      "trackId": "lead",
+      "startUs": 149390000,
+      "endUs": 149910000,
+      "pitchMidi": 69,
+      "tuningCents": -10.8,
+      "scorable": true
+    },
+    {
+      "id": "n305",
+      "trackId": "lead",
+      "startUs": 149960000,
+      "endUs": 150330000,
+      "pitchMidi": 66,
+      "tuningCents": -40.5,
+      "scorable": true
+    },
+    {
+      "id": "n306",
+      "trackId": "lead",
+      "startUs": 150330000,
+      "endUs": 150720000,
+      "pitchMidi": 65,
+      "tuningCents": -0.6,
+      "scorable": true
+    },
+    {
+      "id": "n307",
+      "trackId": "lead",
+      "startUs": 150950000,
+      "endUs": 151040000,
+      "pitchMidi": 63,
+      "tuningCents": -34.0,
+      "scorable": true
+    },
+    {
+      "id": "n308",
+      "trackId": "lead",
+      "startUs": 151130000,
+      "endUs": 151520000,
+      "pitchMidi": 65,
+      "tuningCents": -31.2,
+      "scorable": true
+    },
+    {
+      "id": "n309",
+      "trackId": "lead",
+      "startUs": 151520000,
+      "endUs": 151870000,
+      "pitchMidi": 68,
+      "tuningCents": -11.6,
+      "scorable": true
+    },
+    {
+      "id": "n310",
+      "trackId": "lead",
+      "startUs": 151870000,
+      "endUs": 152240000,
+      "pitchMidi": 72,
+      "tuningCents": 44.5,
+      "scorable": true
+    },
+    {
+      "id": "n311",
+      "trackId": "lead",
+      "startUs": 152240000,
+      "endUs": 152600000,
+      "pitchMidi": 70,
+      "tuningCents": -3.6,
+      "scorable": true
+    },
+    {
+      "id": "n312",
+      "trackId": "lead",
+      "startUs": 152630000,
+      "endUs": 157000000,
+      "pitchMidi": 73,
+      "tuningCents": -9.9,
+      "scorable": true
+    },
+    {
+      "id": "n313",
+      "trackId": "lead",
+      "startUs": 157000000,
+      "endUs": 157540000,
+      "pitchMidi": 75,
+      "tuningCents": -26.6,
+      "scorable": true
+    },
+    {
+      "id": "n314",
+      "trackId": "lead",
+      "startUs": 157540000,
+      "endUs": 157610000,
+      "pitchMidi": 56,
+      "tuningCents": -31.8,
+      "scorable": true
+    },
+    {
+      "id": "n315",
+      "trackId": "lead",
+      "startUs": 157610000,
+      "endUs": 157670000,
+      "pitchMidi": 75,
+      "tuningCents": -20.1,
+      "scorable": true
+    },
+    {
+      "id": "n316",
+      "trackId": "lead",
+      "startUs": 157740000,
+      "endUs": 158220000,
+      "pitchMidi": 76,
+      "tuningCents": -17.6,
+      "scorable": true
+    },
+    {
+      "id": "n317",
+      "trackId": "lead",
+      "startUs": 158270000,
+      "endUs": 158650000,
+      "pitchMidi": 75,
+      "tuningCents": 5.5,
+      "scorable": true
+    },
+    {
+      "id": "n318",
+      "trackId": "lead",
+      "startUs": 180950000,
+      "endUs": 181050000,
+      "pitchMidi": 65,
+      "tuningCents": 0.9,
+      "scorable": true
+    },
+    {
+      "id": "n319",
+      "trackId": "lead",
+      "startUs": 181140000,
+      "endUs": 181620000,
+      "pitchMidi": 66,
+      "tuningCents": -35.6,
+      "scorable": true
+    },
+    {
+      "id": "n320",
+      "trackId": "lead",
+      "startUs": 181620000,
+      "endUs": 182000000,
+      "pitchMidi": 68,
+      "tuningCents": -0.8,
+      "scorable": true
+    },
+    {
+      "id": "n321",
+      "trackId": "lead",
+      "startUs": 182060000,
+      "endUs": 182350000,
+      "pitchMidi": 68,
+      "tuningCents": -5.9,
+      "scorable": true
+    },
+    {
+      "id": "n322",
+      "trackId": "lead",
+      "startUs": 182450000,
+      "endUs": 182760000,
+      "pitchMidi": 68,
+      "tuningCents": -26.1,
+      "scorable": true
+    },
+    {
+      "id": "n323",
+      "trackId": "lead",
+      "startUs": 182820000,
+      "endUs": 183160000,
+      "pitchMidi": 68,
+      "tuningCents": -29.7,
+      "scorable": true
+    },
+    {
+      "id": "n324",
+      "trackId": "lead",
+      "startUs": 183160000,
+      "endUs": 183360000,
+      "pitchMidi": 61,
+      "tuningCents": 10.0,
+      "scorable": true
+    },
+    {
+      "id": "n325",
+      "trackId": "lead",
+      "startUs": 183360000,
+      "endUs": 183420000,
+      "pitchMidi": 59,
+      "tuningCents": -13.2,
+      "scorable": true
+    },
+    {
+      "id": "n326",
+      "trackId": "lead",
+      "startUs": 183420000,
+      "endUs": 183780000,
+      "pitchMidi": 61,
+      "tuningCents": 4.5,
+      "scorable": true
+    },
+    {
+      "id": "n327",
+      "trackId": "lead",
+      "startUs": 183950000,
+      "endUs": 184150000,
+      "pitchMidi": 61,
+      "tuningCents": -31.2,
+      "scorable": true
+    },
+    {
+      "id": "n328",
+      "trackId": "lead",
+      "startUs": 184150000,
+      "endUs": 184910000,
+      "pitchMidi": 65,
+      "tuningCents": 32.3,
+      "scorable": true
+    },
+    {
+      "id": "n329",
+      "trackId": "lead",
+      "startUs": 184920000,
+      "endUs": 185070000,
+      "pitchMidi": 66,
+      "tuningCents": -0.6,
+      "scorable": true
+    },
+    {
+      "id": "n330",
+      "trackId": "lead",
+      "startUs": 185070000,
+      "endUs": 185430000,
+      "pitchMidi": 63,
+      "tuningCents": 6.5,
+      "scorable": true
+    },
+    {
+      "id": "n331",
+      "trackId": "lead",
+      "startUs": 185490000,
+      "endUs": 186380000,
+      "pitchMidi": 71,
+      "tuningCents": 35.0,
+      "scorable": true
+    },
+    {
+      "id": "n332",
+      "trackId": "lead",
+      "startUs": 186450000,
+      "endUs": 186920000,
+      "pitchMidi": 73,
+      "tuningCents": -42.2,
+      "scorable": true
+    },
+    {
+      "id": "n333",
+      "trackId": "lead",
+      "startUs": 187170000,
+      "endUs": 187230000,
+      "pitchMidi": 68,
+      "tuningCents": 2.4,
+      "scorable": true
+    },
+    {
+      "id": "n334",
+      "trackId": "lead",
+      "startUs": 187230000,
+      "endUs": 187950000,
+      "pitchMidi": 72,
+      "tuningCents": -1.2,
+      "scorable": true
+    },
+    {
+      "id": "n335",
+      "trackId": "lead",
+      "startUs": 187970000,
+      "endUs": 188130000,
+      "pitchMidi": 72,
+      "tuningCents": -11.3,
+      "scorable": true
+    },
+    {
+      "id": "n336",
+      "trackId": "lead",
+      "startUs": 188190000,
+      "endUs": 188510000,
+      "pitchMidi": 70,
+      "tuningCents": -2.5,
+      "scorable": true
+    },
+    {
+      "id": "n337",
+      "trackId": "lead",
+      "startUs": 188560000,
+      "endUs": 189440000,
+      "pitchMidi": 72,
+      "tuningCents": -11.0,
+      "scorable": true
+    },
+    {
+      "id": "n338",
+      "trackId": "lead",
+      "startUs": 189440000,
+      "endUs": 189820000,
+      "pitchMidi": 74,
+      "tuningCents": 27.0,
+      "scorable": true
+    },
+    {
+      "id": "n339",
+      "trackId": "lead",
+      "startUs": 189820000,
+      "endUs": 190230000,
+      "pitchMidi": 73,
+      "tuningCents": -11.0,
+      "scorable": true
+    },
+    {
+      "id": "n340",
+      "trackId": "lead",
+      "startUs": 190450000,
+      "endUs": 190560000,
+      "pitchMidi": 65,
+      "tuningCents": -47.9,
+      "scorable": true
+    },
+    {
+      "id": "n341",
+      "trackId": "lead",
+      "startUs": 190630000,
+      "endUs": 191100000,
+      "pitchMidi": 71,
+      "tuningCents": -28.6,
+      "scorable": true
+    },
+    {
+      "id": "n342",
+      "trackId": "lead",
+      "startUs": 191180000,
+      "endUs": 191460000,
+      "pitchMidi": 70,
+      "tuningCents": -1.0,
+      "scorable": true
+    },
+    {
+      "id": "n343",
+      "trackId": "lead",
+      "startUs": 191570000,
+      "endUs": 192270000,
+      "pitchMidi": 66,
+      "tuningCents": 18.6,
+      "scorable": true
+    },
+    {
+      "id": "n344",
+      "trackId": "lead",
+      "startUs": 192310000,
+      "endUs": 192500000,
+      "pitchMidi": 70,
+      "tuningCents": -4.8,
+      "scorable": true
+    },
+    {
+      "id": "n345",
+      "trackId": "lead",
+      "startUs": 192500000,
+      "endUs": 192910000,
+      "pitchMidi": 68,
+      "tuningCents": -3.3,
+      "scorable": true
+    },
+    {
+      "id": "n346",
+      "trackId": "lead",
+      "startUs": 193270000,
+      "endUs": 193570000,
+      "pitchMidi": 65,
+      "tuningCents": -0.1,
+      "scorable": true
+    },
+    {
+      "id": "n347",
+      "trackId": "lead",
+      "startUs": 193640000,
+      "endUs": 193780000,
+      "pitchMidi": 66,
+      "tuningCents": -8.1,
+      "scorable": true
+    },
+    {
+      "id": "n348",
+      "trackId": "lead",
+      "startUs": 193780000,
+      "endUs": 193960000,
+      "pitchMidi": 68,
+      "tuningCents": -0.1,
+      "scorable": true
+    },
+    {
+      "id": "n349",
+      "trackId": "lead",
+      "startUs": 193960000,
+      "endUs": 194020000,
+      "pitchMidi": 66,
+      "tuningCents": -25.0,
+      "scorable": true
+    },
+    {
+      "id": "n350",
+      "trackId": "lead",
+      "startUs": 194020000,
+      "endUs": 194520000,
+      "pitchMidi": 68,
+      "tuningCents": -0.7,
+      "scorable": true
+    },
+    {
+      "id": "n351",
+      "trackId": "lead",
+      "startUs": 194580000,
+      "endUs": 194890000,
+      "pitchMidi": 68,
+      "tuningCents": -4.4,
+      "scorable": true
+    },
+    {
+      "id": "n352",
+      "trackId": "lead",
+      "startUs": 194970000,
+      "endUs": 195310000,
+      "pitchMidi": 68,
+      "tuningCents": -15.1,
+      "scorable": true
+    },
+    {
+      "id": "n353",
+      "trackId": "lead",
+      "startUs": 195370000,
+      "endUs": 195470000,
+      "pitchMidi": 60,
+      "tuningCents": -10.2,
+      "scorable": true
+    },
+    {
+      "id": "n354",
+      "trackId": "lead",
+      "startUs": 195550000,
+      "endUs": 195950000,
+      "pitchMidi": 61,
+      "tuningCents": -10.5,
+      "scorable": true
+    },
+    {
+      "id": "n355",
+      "trackId": "lead",
+      "startUs": 196140000,
+      "endUs": 196340000,
+      "pitchMidi": 61,
+      "tuningCents": 20.0,
+      "scorable": true
+    },
+    {
+      "id": "n356",
+      "trackId": "lead",
+      "startUs": 196340000,
+      "endUs": 196480000,
+      "pitchMidi": 68,
+      "tuningCents": -37.9,
+      "scorable": true
+    },
+    {
+      "id": "n357",
+      "trackId": "lead",
+      "startUs": 196480000,
+      "endUs": 196650000,
+      "pitchMidi": 66,
+      "tuningCents": -22.3,
+      "scorable": true
+    },
+    {
+      "id": "n358",
+      "trackId": "lead",
+      "startUs": 196700000,
+      "endUs": 197210000,
+      "pitchMidi": 65,
+      "tuningCents": 10.3,
+      "scorable": true
+    },
+    {
+      "id": "n359",
+      "trackId": "lead",
+      "startUs": 197300000,
+      "endUs": 197620000,
+      "pitchMidi": 63,
+      "tuningCents": -1.6,
+      "scorable": true
+    },
+    {
+      "id": "n360",
+      "trackId": "lead",
+      "startUs": 197620000,
+      "endUs": 197680000,
+      "pitchMidi": 66,
+      "tuningCents": 47.7,
+      "scorable": true
+    },
+    {
+      "id": "n361",
+      "trackId": "lead",
+      "startUs": 197680000,
+      "endUs": 197950000,
+      "pitchMidi": 72,
+      "tuningCents": -33.4,
+      "scorable": true
+    },
+    {
+      "id": "n362",
+      "trackId": "lead",
+      "startUs": 198030000,
+      "endUs": 199030000,
+      "pitchMidi": 72,
+      "tuningCents": -10.0,
+      "scorable": true
+    },
+    {
+      "id": "n363",
+      "trackId": "lead",
+      "startUs": 199340000,
+      "endUs": 199490000,
+      "pitchMidi": 70,
+      "tuningCents": -20.5,
+      "scorable": true
+    },
+    {
+      "id": "n364",
+      "trackId": "lead",
+      "startUs": 199570000,
+      "endUs": 200090000,
+      "pitchMidi": 72,
+      "tuningCents": 9.8,
+      "scorable": true
+    },
+    {
+      "id": "n365",
+      "trackId": "lead",
+      "startUs": 200120000,
+      "endUs": 200640000,
+      "pitchMidi": 70,
+      "tuningCents": 11.2,
+      "scorable": true
+    },
+    {
+      "id": "n366",
+      "trackId": "lead",
+      "startUs": 200690000,
+      "endUs": 201010000,
+      "pitchMidi": 72,
+      "tuningCents": -31.5,
+      "scorable": true
+    },
+    {
+      "id": "n367",
+      "trackId": "lead",
+      "startUs": 201080000,
+      "endUs": 201570000,
+      "pitchMidi": 72,
+      "tuningCents": 0.2,
+      "scorable": true
+    },
+    {
+      "id": "n368",
+      "trackId": "lead",
+      "startUs": 201640000,
+      "endUs": 201980000,
+      "pitchMidi": 75,
+      "tuningCents": -46.9,
+      "scorable": true
+    },
+    {
+      "id": "n369",
+      "trackId": "lead",
+      "startUs": 202010000,
+      "endUs": 202340000,
+      "pitchMidi": 73,
+      "tuningCents": -1.4,
+      "scorable": true
+    },
+    {
+      "id": "n370",
+      "trackId": "lead",
+      "startUs": 202580000,
+      "endUs": 202720000,
+      "pitchMidi": 65,
+      "tuningCents": -13.2,
+      "scorable": true
+    },
+    {
+      "id": "n371",
+      "trackId": "lead",
+      "startUs": 202720000,
+      "endUs": 202780000,
+      "pitchMidi": 63,
+      "tuningCents": -49.5,
+      "scorable": true
+    },
+    {
+      "id": "n372",
+      "trackId": "lead",
+      "startUs": 202780000,
+      "endUs": 203240000,
+      "pitchMidi": 66,
+      "tuningCents": -0.6,
+      "scorable": true
+    },
+    {
+      "id": "n373",
+      "trackId": "lead",
+      "startUs": 203360000,
+      "endUs": 203620000,
+      "pitchMidi": 68,
+      "tuningCents": -26.7,
+      "scorable": true
+    },
+    {
+      "id": "n374",
+      "trackId": "lead",
+      "startUs": 203700000,
+      "endUs": 204000000,
+      "pitchMidi": 69,
+      "tuningCents": 25.3,
+      "scorable": true
+    },
+    {
+      "id": "n375",
+      "trackId": "lead",
+      "startUs": 204090000,
+      "endUs": 204730000,
+      "pitchMidi": 69,
+      "tuningCents": 0.4,
+      "scorable": true
+    },
+    {
+      "id": "n376",
+      "trackId": "lead",
+      "startUs": 205050000,
+      "endUs": 205470000,
+      "pitchMidi": 65,
+      "tuningCents": -34.1,
+      "scorable": true
+    },
+    {
+      "id": "n377",
+      "trackId": "lead",
+      "startUs": 205470000,
+      "endUs": 206290000,
+      "pitchMidi": 66,
+      "tuningCents": 41.4,
+      "scorable": true
+    },
+    {
+      "id": "n378",
+      "trackId": "lead",
+      "startUs": 206290000,
+      "endUs": 206390000,
+      "pitchMidi": 62,
+      "tuningCents": -20.1,
+      "scorable": true
+    },
+    {
+      "id": "n379",
+      "trackId": "lead",
+      "startUs": 206390000,
+      "endUs": 206670000,
+      "pitchMidi": 68,
+      "tuningCents": 5.4,
+      "scorable": true
+    },
+    {
+      "id": "n380",
+      "trackId": "lead",
+      "startUs": 206770000,
+      "endUs": 207070000,
+      "pitchMidi": 68,
+      "tuningCents": -13.3,
+      "scorable": true
+    },
+    {
+      "id": "n381",
+      "trackId": "lead",
+      "startUs": 207120000,
+      "endUs": 207450000,
+      "pitchMidi": 68,
+      "tuningCents": -16.6,
+      "scorable": true
+    },
+    {
+      "id": "n382",
+      "trackId": "lead",
+      "startUs": 207450000,
+      "endUs": 207510000,
+      "pitchMidi": 64,
+      "tuningCents": -1.2,
+      "scorable": true
+    },
+    {
+      "id": "n383",
+      "trackId": "lead",
+      "startUs": 207510000,
+      "endUs": 208090000,
+      "pitchMidi": 61,
+      "tuningCents": -5.6,
+      "scorable": true
+    },
+    {
+      "id": "n384",
+      "trackId": "lead",
+      "startUs": 208280000,
+      "endUs": 208460000,
+      "pitchMidi": 61,
+      "tuningCents": 3.7,
+      "scorable": true
+    },
+    {
+      "id": "n385",
+      "trackId": "lead",
+      "startUs": 208460000,
+      "endUs": 208630000,
+      "pitchMidi": 68,
+      "tuningCents": -32.7,
+      "scorable": true
+    },
+    {
+      "id": "n386",
+      "trackId": "lead",
+      "startUs": 208630000,
+      "endUs": 209390000,
+      "pitchMidi": 66,
+      "tuningCents": -46.8,
+      "scorable": true
+    },
+    {
+      "id": "n387",
+      "trackId": "lead",
+      "startUs": 209390000,
+      "endUs": 209740000,
+      "pitchMidi": 63,
+      "tuningCents": 4.0,
+      "scorable": true
+    },
+    {
+      "id": "n388",
+      "trackId": "lead",
+      "startUs": 209740000,
+      "endUs": 209800000,
+      "pitchMidi": 67,
+      "tuningCents": -26.2,
+      "scorable": true
+    },
+    {
+      "id": "n389",
+      "trackId": "lead",
+      "startUs": 209800000,
+      "endUs": 210130000,
+      "pitchMidi": 72,
+      "tuningCents": -28.7,
+      "scorable": true
+    },
+    {
+      "id": "n390",
+      "trackId": "lead",
+      "startUs": 210160000,
+      "endUs": 210660000,
+      "pitchMidi": 71,
+      "tuningCents": -17.3,
+      "scorable": true
+    },
+    {
+      "id": "n391",
+      "trackId": "lead",
+      "startUs": 210740000,
+      "endUs": 211210000,
+      "pitchMidi": 73,
+      "tuningCents": -28.0,
+      "scorable": true
+    },
+    {
+      "id": "n392",
+      "trackId": "lead",
+      "startUs": 211500000,
+      "endUs": 211700000,
+      "pitchMidi": 70,
+      "tuningCents": -6.0,
+      "scorable": true
+    },
+    {
+      "id": "n393",
+      "trackId": "lead",
+      "startUs": 211700000,
+      "endUs": 212790000,
+      "pitchMidi": 72,
+      "tuningCents": -16.0,
+      "scorable": true
+    },
+    {
+      "id": "n394",
+      "trackId": "lead",
+      "startUs": 212840000,
+      "endUs": 213530000,
+      "pitchMidi": 72,
+      "tuningCents": -14.3,
+      "scorable": true
+    },
+    {
+      "id": "n395",
+      "trackId": "lead",
+      "startUs": 213580000,
+      "endUs": 213690000,
+      "pitchMidi": 72,
+      "tuningCents": 6.9,
+      "scorable": true
+    },
+    {
+      "id": "n396",
+      "trackId": "lead",
+      "startUs": 213770000,
+      "endUs": 214100000,
+      "pitchMidi": 75,
+      "tuningCents": -49.1,
+      "scorable": true
+    },
+    {
+      "id": "n397",
+      "trackId": "lead",
+      "startUs": 214160000,
+      "endUs": 214510000,
+      "pitchMidi": 73,
+      "tuningCents": -3.2,
+      "scorable": true
+    },
+    {
+      "id": "n398",
+      "trackId": "lead",
+      "startUs": 214760000,
+      "endUs": 214940000,
+      "pitchMidi": 65,
+      "tuningCents": -8.2,
+      "scorable": true
+    },
+    {
+      "id": "n399",
+      "trackId": "lead",
+      "startUs": 214940000,
+      "endUs": 215000000,
+      "pitchMidi": 69,
+      "tuningCents": -14.2,
+      "scorable": true
+    },
+    {
+      "id": "n400",
+      "trackId": "lead",
+      "startUs": 215000000,
+      "endUs": 215070000,
+      "pitchMidi": 71,
+      "tuningCents": -31.5,
+      "scorable": true
+    },
+    {
+      "id": "n401",
+      "trackId": "lead",
+      "startUs": 215120000,
+      "endUs": 215750000,
+      "pitchMidi": 71,
+      "tuningCents": -17.0,
+      "scorable": true
+    },
+    {
+      "id": "n402",
+      "trackId": "lead",
+      "startUs": 215850000,
+      "endUs": 216160000,
+      "pitchMidi": 66,
+      "tuningCents": -17.5,
+      "scorable": true
+    },
+    {
+      "id": "n403",
+      "trackId": "lead",
+      "startUs": 216230000,
+      "endUs": 216630000,
+      "pitchMidi": 68,
+      "tuningCents": -40.8,
+      "scorable": true
+    },
+    {
+      "id": "n404",
+      "trackId": "lead",
+      "startUs": 216630000,
+      "endUs": 217240000,
+      "pitchMidi": 68,
+      "tuningCents": 9.7,
+      "scorable": true
+    },
+    {
+      "id": "n405",
+      "trackId": "lead",
+      "startUs": 217590000,
+      "endUs": 217870000,
+      "pitchMidi": 65,
+      "tuningCents": 10.0,
+      "scorable": true
+    },
+    {
+      "id": "n406",
+      "trackId": "lead",
+      "startUs": 217920000,
+      "endUs": 218280000,
+      "pitchMidi": 68,
+      "tuningCents": -37.4,
+      "scorable": true
+    },
+    {
+      "id": "n407",
+      "trackId": "lead",
+      "startUs": 218280000,
+      "endUs": 218340000,
+      "pitchMidi": 65,
+      "tuningCents": -2.3,
+      "scorable": true
+    },
+    {
+      "id": "n408",
+      "trackId": "lead",
+      "startUs": 218340000,
+      "endUs": 218850000,
+      "pitchMidi": 68,
+      "tuningCents": -6.9,
+      "scorable": true
+    },
+    {
+      "id": "n409",
+      "trackId": "lead",
+      "startUs": 218910000,
+      "endUs": 219220000,
+      "pitchMidi": 68,
+      "tuningCents": -11.1,
+      "scorable": true
+    },
+    {
+      "id": "n410",
+      "trackId": "lead",
+      "startUs": 219290000,
+      "endUs": 219600000,
+      "pitchMidi": 68,
+      "tuningCents": -10.0,
+      "scorable": true
+    },
+    {
+      "id": "n411",
+      "trackId": "lead",
+      "startUs": 219670000,
+      "endUs": 219790000,
+      "pitchMidi": 60,
+      "tuningCents": 16.2,
+      "scorable": true
+    },
+    {
+      "id": "n412",
+      "trackId": "lead",
+      "startUs": 219860000,
+      "endUs": 220270000,
+      "pitchMidi": 61,
+      "tuningCents": -6.7,
+      "scorable": true
+    },
+    {
+      "id": "n413",
+      "trackId": "lead",
+      "startUs": 220440000,
+      "endUs": 220520000,
+      "pitchMidi": 61,
+      "tuningCents": -4.8,
+      "scorable": true
+    },
+    {
+      "id": "n414",
+      "trackId": "lead",
+      "startUs": 220620000,
+      "endUs": 220730000,
+      "pitchMidi": 67,
+      "tuningCents": 11.0,
+      "scorable": true
+    },
+    {
+      "id": "n415",
+      "trackId": "lead",
+      "startUs": 220820000,
+      "endUs": 221490000,
+      "pitchMidi": 65,
+      "tuningCents": 45.6,
+      "scorable": true
+    },
+    {
+      "id": "n416",
+      "trackId": "lead",
+      "startUs": 221610000,
+      "endUs": 221930000,
+      "pitchMidi": 63,
+      "tuningCents": 12.9,
+      "scorable": true
+    },
+    {
+      "id": "n417",
+      "trackId": "lead",
+      "startUs": 221930000,
+      "endUs": 221990000,
+      "pitchMidi": 67,
+      "tuningCents": -20.5,
+      "scorable": true
+    },
+    {
+      "id": "n418",
+      "trackId": "lead",
+      "startUs": 221990000,
+      "endUs": 222650000,
+      "pitchMidi": 72,
+      "tuningCents": -25.4,
+      "scorable": true
+    },
+    {
+      "id": "n419",
+      "trackId": "lead",
+      "startUs": 222710000,
+      "endUs": 223430000,
+      "pitchMidi": 73,
+      "tuningCents": 27.6,
+      "scorable": true
+    },
+    {
+      "id": "n420",
+      "trackId": "lead",
+      "startUs": 223630000,
+      "endUs": 223990000,
+      "pitchMidi": 70,
+      "tuningCents": 1.4,
+      "scorable": true
+    },
+    {
+      "id": "n421",
+      "trackId": "lead",
+      "startUs": 224040000,
+      "endUs": 225020000,
+      "pitchMidi": 72,
+      "tuningCents": -5.5,
+      "scorable": true
+    },
+    {
+      "id": "n422",
+      "trackId": "lead",
+      "startUs": 225020000,
+      "endUs": 225850000,
+      "pitchMidi": 72,
+      "tuningCents": -1.3,
+      "scorable": true
+    },
+    {
+      "id": "n423",
+      "trackId": "lead",
+      "startUs": 225930000,
+      "endUs": 226650000,
+      "pitchMidi": 74,
+      "tuningCents": 1.1,
+      "scorable": true
+    },
+    {
+      "id": "n424",
+      "trackId": "lead",
+      "startUs": 226880000,
+      "endUs": 227000000,
+      "pitchMidi": 65,
+      "tuningCents": -1.9,
+      "scorable": true
+    },
+    {
+      "id": "n425",
+      "trackId": "lead",
+      "startUs": 227070000,
+      "endUs": 227200000,
+      "pitchMidi": 66,
+      "tuningCents": -4.4,
+      "scorable": true
+    },
+    {
+      "id": "n426",
+      "trackId": "lead",
+      "startUs": 227290000,
+      "endUs": 227610000,
+      "pitchMidi": 66,
+      "tuningCents": -28.0,
+      "scorable": true
+    },
+    {
+      "id": "n427",
+      "trackId": "lead",
+      "startUs": 227670000,
+      "endUs": 227920000,
+      "pitchMidi": 68,
+      "tuningCents": 8.6,
+      "scorable": true
+    },
+    {
+      "id": "n428",
+      "trackId": "lead",
+      "startUs": 228030000,
+      "endUs": 228730000,
+      "pitchMidi": 69,
+      "tuningCents": 5.4,
+      "scorable": true
+    },
+    {
+      "id": "n429",
+      "trackId": "lead",
+      "startUs": 228770000,
+      "endUs": 228890000,
+      "pitchMidi": 68,
+      "tuningCents": 38.9,
+      "scorable": true
+    },
+    {
+      "id": "n430",
+      "trackId": "lead",
+      "startUs": 228980000,
+      "endUs": 229680000,
+      "pitchMidi": 65,
+      "tuningCents": 18.6,
+      "scorable": true
+    },
+    {
+      "id": "n431",
+      "trackId": "lead",
+      "startUs": 229920000,
+      "endUs": 230030000,
+      "pitchMidi": 63,
+      "tuningCents": 6.7,
+      "scorable": true
+    },
+    {
+      "id": "n432",
+      "trackId": "lead",
+      "startUs": 230130000,
+      "endUs": 230510000,
+      "pitchMidi": 65,
+      "tuningCents": -9.9,
+      "scorable": true
+    },
+    {
+      "id": "n433",
+      "trackId": "lead",
+      "startUs": 230510000,
+      "endUs": 230830000,
+      "pitchMidi": 68,
+      "tuningCents": -13.8,
+      "scorable": true
+    },
+    {
+      "id": "n434",
+      "trackId": "lead",
+      "startUs": 230880000,
+      "endUs": 231240000,
+      "pitchMidi": 73,
+      "tuningCents": -48.2,
+      "scorable": true
+    },
+    {
+      "id": "n435",
+      "trackId": "lead",
+      "startUs": 231240000,
+      "endUs": 231570000,
+      "pitchMidi": 70,
+      "tuningCents": 1.7,
+      "scorable": true
+    },
+    {
+      "id": "n436",
+      "trackId": "lead",
+      "startUs": 231640000,
+      "endUs": 232760000,
+      "pitchMidi": 72,
+      "tuningCents": 36.1,
+      "scorable": true
+    },
+    {
+      "id": "n437",
+      "trackId": "lead",
+      "startUs": 232770000,
+      "endUs": 232920000,
+      "pitchMidi": 72,
+      "tuningCents": -0.6,
+      "scorable": true
+    },
+    {
+      "id": "n438",
+      "trackId": "lead",
+      "startUs": 232970000,
+      "endUs": 236160000,
+      "pitchMidi": 73,
+      "tuningCents": -1.5,
+      "scorable": true
+    },
+    {
+      "id": "n439",
+      "trackId": "lead",
+      "startUs": 236370000,
+      "endUs": 237080000,
+      "pitchMidi": 71,
+      "tuningCents": 2.1,
+      "scorable": true
+    },
+    {
+      "id": "n440",
+      "trackId": "lead",
+      "startUs": 237080000,
+      "endUs": 239080000,
+      "pitchMidi": 64,
+      "tuningCents": 3.5,
+      "scorable": true
+    },
+    {
+      "id": "n441",
+      "trackId": "lead",
+      "startUs": 239380000,
+      "endUs": 240120000,
+      "pitchMidi": 71,
+      "tuningCents": 4.1,
+      "scorable": true
+    },
+    {
+      "id": "n442",
+      "trackId": "lead",
+      "startUs": 240120000,
+      "endUs": 241290000,
+      "pitchMidi": 64,
+      "tuningCents": 12.7,
+      "scorable": true
+    },
+    {
+      "id": "n443",
+      "trackId": "lead",
+      "startUs": 241290000,
+      "endUs": 242080000,
+      "pitchMidi": 64,
+      "tuningCents": -0.4,
+      "scorable": true
+    },
+    {
+      "id": "n444",
+      "trackId": "lead",
+      "startUs": 242410000,
+      "endUs": 243160000,
+      "pitchMidi": 71,
+      "tuningCents": -9.2,
+      "scorable": true
+    },
+    {
+      "id": "n445",
+      "trackId": "lead",
+      "startUs": 243160000,
+      "endUs": 243220000,
+      "pitchMidi": 66,
+      "tuningCents": -10.5,
+      "scorable": true
+    },
+    {
+      "id": "n446",
+      "trackId": "lead",
+      "startUs": 243220000,
+      "endUs": 245120000,
+      "pitchMidi": 64,
+      "tuningCents": -13.0,
+      "scorable": true
+    },
+    {
+      "id": "n447",
+      "trackId": "lead",
+      "startUs": 245400000,
+      "endUs": 246180000,
+      "pitchMidi": 71,
+      "tuningCents": -2.9,
+      "scorable": true
+    },
+    {
+      "id": "n448",
+      "trackId": "lead",
+      "startUs": 246180000,
+      "endUs": 251280000,
+      "pitchMidi": 68,
+      "tuningCents": -4.4,
+      "scorable": true
+    },
+    {
+      "id": "n449",
+      "trackId": "lead",
+      "startUs": 251280000,
+      "endUs": 251360000,
+      "pitchMidi": 63,
+      "tuningCents": 28.8,
+      "scorable": true
+    },
+    {
+      "id": "n450",
+      "trackId": "lead",
+      "startUs": 251670000,
+      "endUs": 251870000,
+      "pitchMidi": 68,
+      "tuningCents": -12.7,
+      "scorable": true
+    },
+    {
+      "id": "n451",
+      "trackId": "lead",
+      "startUs": 251870000,
+      "endUs": 252140000,
+      "pitchMidi": 66,
+      "tuningCents": 9.0,
+      "scorable": true
+    }
+  ],
+  "lyricTokens": [],
+  "phrases": [],
+  "extensions": {
+    "status": "ai_draft",
+    "model": "Demucs-HTDemucs + RMVPE",
+    "note": "Full-song draft generated from isolated vocals. Physical timestamps preserved. Subject to visual editor correction."
+  }
+}

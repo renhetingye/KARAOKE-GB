@@ -1,0 +1,23 @@
+{
+  "capture": {
+    "driftFromNominalPpm": 1.188890302425231,
+    "effectiveSampleRate": 48000.05706673452,
+    "elapsedSeconds": 8.9999893,
+    "frameDelta": 432000
+  },
+  "captureDiscontinuities": 1,
+  "captureFramesObserved": 480000,
+  "captureRenderRelativeDriftPpm": 7.208853113560565,
+  "durationSeconds": 10,
+  "qualification": "short observation only; not a 30-minute T01/T16 acceptance result",
+  "render": {
+    "driftFromNominalPpm": -6.01991941448432,
+    "effectiveSampleRate": 47999.711043868105,
+    "elapsedSeconds": 9.0200543,
+    "frameDelta": 432960
+  },
+  "renderFramesRequested": 480960,
+  "schemaVersion": "1.0.0",
+  "testId": "T01-short-hardware-observation",
+  "timestampUnit": "wasapi_100ns"
+}

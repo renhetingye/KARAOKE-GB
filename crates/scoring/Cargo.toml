@@ -1,0 +1,15 @@
+[package]
+name = "karaoke-scoring"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+karaoke-protocol = { path = "../protocol" }
+karaoke-song-format = { path = "../song-format" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]

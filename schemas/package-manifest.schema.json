@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Karaoke Package Manifest 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packageVersion",
+    "packageId",
+    "chartPath",
+    "createdBy",
+    "files"
+  ],
+  "properties": {
+    "packageVersion": {
+      "const": "1.0.0"
+    },
+    "packageId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,96}$"
+    },
+    "chartPath": {
+      "const": "chart.json"
+    },
+    "createdBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "files": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 255,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "bytes",
+          "sha256",
+          "role"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483648
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "role": {
+            "enum": [
+              "chart",
+              "backing",
+              "guide",
+              "jacket"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

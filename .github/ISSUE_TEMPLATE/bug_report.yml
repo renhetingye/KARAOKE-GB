@@ -1,0 +1,69 @@
+name: バグ報告
+description: 再現可能な不具合やクラッシュを報告します
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。このプロジェクトはAI主体の開発版であり、調査・修正・返信を保証できません。
+        著作権のある音源、個人の録音、メールアドレス、トークンなどは添付しないでください。
+  - type: textarea
+    id: summary
+    attributes:
+      label: 問題の概要
+      description: 何が起きたかを簡潔に記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      placeholder: |
+        1. アプリを起動
+        2. ○○を選択
+        3. ○○を押す
+        4. 問題が発生
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待した動作
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の動作
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windowsバージョン
+      placeholder: Windows 11 24H2
+  - type: input
+    id: audio
+    attributes:
+      label: マイク・ヘッドフォン・音声デバイス
+      placeholder: 製品名、USB/有線/Bluetoothなど
+  - type: input
+    id: version
+    attributes:
+      label: コミット・実行ファイルSHA-256
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログ
+      description: 個人情報とローカルパスを必要に応じて伏せてください。
+      render: shell
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 添付内容の確認
+      options:
+        - label: 著作権のある曲、個人録音、パスワード、トークン、不要な個人情報を添付していません。
+          required: true
+        - label: このIssueが修正・返信される保証がないことを理解しました。
+          required: true

@@ -1,0 +1,23 @@
+[package]
+name = "karaoke-headless"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+karaoke-protocol = { path = "../../crates/protocol" }
+karaoke-timeline = { path = "../../crates/timeline" }
+karaoke-song-format = { path = "../../crates/song-format" }
+karaoke-scoring = { path = "../../crates/scoring" }
+karaoke-pitch = { path = "../../crates/pitch" }
+karaoke-media = { path = "../../crates/media" }
+karaoke-audio-win = { path = "../../crates/audio-win" }
+karaoke-audio-engine = { path = "../../crates/audio-engine" }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+rtrb = { workspace = true }
+
+[[bin]]
+name = "karaoke-cli"
+path = "src/main.rs"

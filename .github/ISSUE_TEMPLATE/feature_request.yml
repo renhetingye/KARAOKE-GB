@@ -1,0 +1,34 @@
+name: 機能提案
+description: 新機能や改善案を提案します
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提案ありがとうございます。採用、実装、返信、予定日の提示を保証するものではありません。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 解決したい問題
+      description: 機能名だけでなく、現在どこで困るかを書いてください。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 希望する動作
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 代替案・参考例
+      description: 商用カラオケ等を参考にする場合も、利用規約に反する素材は添付しないでください。
+  - type: checkboxes
+    id: expectations
+    attributes:
+      label: 確認
+      options:
+        - label: 提案が採用・実装される保証がないことを理解しました。
+          required: true

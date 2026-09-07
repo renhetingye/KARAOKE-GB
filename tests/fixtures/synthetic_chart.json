@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "2.0.0",
+  "requiredFeatures": [
+    "single-melody",
+    "step-tempo"
+  ],
+  "songId": "synthetic_test",
+  "chartId": "synthetic_chart",
+  "chartRevision": 1,
+  "title": "Synthetic A4 Timing and Score Test",
+  "artist": "Test fixture",
+  "durationUs": 2000000,
+  "credits": [
+    {
+      "text": "Deterministic synthetic fixture conforming to v4 Appendix A.2",
+      "sourceUrl": "local://synthetic",
+      "licenseName": "Public Domain"
+    }
+  ],
+  "media": [
+    {
+      "id": "backing",
+      "path": "media/synthetic_backing.wav",
+      "role": "backing",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sampleRate": 48000,
+      "channels": 1,
+      "frames": 96000,
+      "mediaOffsetUs": 0
+    }
+  ],
+  "tracks": [
+    {
+      "id": "lead",
+      "role": "lead"
+    }
+  ],
+  "tempoMap": {
+    "anchorTimeUs": 0,
+    "anchorQuarterBeat": 0.0,
+    "events": [
+      {
+        "timeUs": 0,
+        "bpm": 120.0
+      }
+    ],
+    "meters": [
+      {
+        "quarterBeat": 0.0,
+        "numerator": 4,
+        "denominator": 4
+      }
+    ]
+  },
+  "notes": [
+    {
+      "id": "n1",
+      "trackId": "lead",
+      "startUs": 500000,
+      "endUs": 550000,
+      "pitchMidi": 69,
+      "tuningCents": 0.0,
+      "scorable": true
+    },
+    {
+      "id": "n2",
+      "trackId": "lead",
+      "startUs": 1000000,
+      "endUs": 1500000,
+      "pitchMidi": 69,
+      "tuningCents": 0.0,
+      "scorable": true
+    }
+  ],
+  "lyricTokens": [
+    {
+      "id": "t1",
+      "text": "あ",
+      "ruby": "",
+      "noteIds": [
+        "n1"
+      ],
+      "startUs": 500000,
+      "endUs": 550000
+    },
+    {
+      "id": "t2",
+      "text": "あ",
+      "ruby": "",
+      "noteIds": [
+        "n2"
+      ],
+      "startUs": 1000000,
+      "endUs": 1500000
+    }
+  ],
+  "phrases": [
+    {
+      "id": "p1",
+      "startUs": 500000,
+      "endUs": 1500000,
+      "tokenIds": [
+        "t1",
+        "t2"
+      ]
+    }
+  ],
+  "extensions": {}
+}

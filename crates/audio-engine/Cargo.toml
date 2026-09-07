@@ -1,0 +1,23 @@
+[package]
+name = "karaoke-audio-engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+karaoke-protocol = { path = "../protocol" }
+karaoke-timeline = { path = "../timeline" }
+karaoke-pitch = { path = "../pitch" }
+karaoke-scoring = { path = "../scoring" }
+karaoke-audio-win = { path = "../audio-win" }
+karaoke-song-format = { path = "../song-format" }
+karaoke-media = { path = "../media" }
+karaoke-recording = { path = "../recording" }
+serde_json = { workspace = true }
+serde = { workspace = true }
+rtrb = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]

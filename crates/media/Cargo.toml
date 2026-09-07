@@ -1,0 +1,17 @@
+[package]
+name = "karaoke-media"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+karaoke-protocol = { path = "../protocol" }
+symphonia = { workspace = true }
+rubato = { workspace = true }
+sha2 = { workspace = true }
+rustfft = { workspace = true }
+thiserror = { workspace = true }
+hound = { workspace = true }
+
+[dev-dependencies]

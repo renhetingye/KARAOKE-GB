@@ -1,0 +1,17 @@
+[package]
+name = "karaoke-song-format"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+karaoke-protocol = { path = "../protocol" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+sha2 = { workspace = true }
+zip = { workspace = true }
+tempfile = { workspace = true }
+
+[dev-dependencies]
