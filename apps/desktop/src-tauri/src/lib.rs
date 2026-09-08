@@ -163,8 +163,25 @@ struct EditorRecovery {
 
 fn read_song_catalog() -> Result<Vec<SongDescriptor>, String> {
     let path = workspace_path("library/songs.json");
-    let content = fs::read_to_string(&path)
-        .map_err(|e| format!("Failed to read song catalog {}: {e}", path.display()))?;
+    read_song_catalog_from(&path)
+}
+
+fn read_song_catalog_from(path: &Path) -> Result<Vec<SongDescriptor>, String> {
+    let content = match fs::read_to_string(path) {
+        Ok(content) => content,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            // A newly extracted portable package has no songs yet. Initialize
+            // its catalog on first launch instead of treating that as damage.
+            durable_replace(path, b"[]")?;
+            return Ok(Vec::new());
+        }
+        Err(error) => {
+            return Err(format!(
+                "Failed to read song catalog {}: {error}",
+                path.display()
+            ));
+        }
+    };
     serde_json::from_str(&content)
         .map_err(|e| format!("Failed to parse song catalog {}: {e}", path.display()))
 }
@@ -1686,6 +1703,25 @@ pub fn run() {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn missing_song_catalog_is_initialized_as_empty() {
+        let unique = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos();
+        let root = std::env::temp_dir().join(format!(
+            "karaoke-empty-catalog-test-{}-{unique}",
+            std::process::id()
+        ));
+        let catalog_path = root.join("library").join("songs.json");
+
+        let catalog = read_song_catalog_from(&catalog_path).unwrap();
+
+        assert!(catalog.is_empty());
+        assert_eq!(fs::read_to_string(&catalog_path).unwrap(), "[]");
+        fs::remove_dir_all(root).unwrap();
+    }
 
     #[test]
     fn song_delete_moves_package_backup_and_project_to_trash() {

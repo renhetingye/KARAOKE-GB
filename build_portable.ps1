@@ -58,6 +58,11 @@ if (Test-Path -LiteralPath (Join-Path $projectRoot 'services\analyzer\models')) 
 foreach ($folder in 'library', 'exports', 'recordings', 'logs') {
     New-Item -ItemType Directory -Path (Join-Path $stageRoot $folder) -Force | Out-Null
 }
+[System.IO.File]::WriteAllText(
+    (Join-Path $stageRoot 'library\songs.json'),
+    '[]',
+    [System.Text.UTF8Encoding]::new($false)
+)
 
 if (Test-Path -LiteralPath $zipPath) { Remove-Item -LiteralPath $zipPath -Force }
 Compress-Archive -LiteralPath $stageRoot -DestinationPath $zipPath -CompressionLevel Optimal
