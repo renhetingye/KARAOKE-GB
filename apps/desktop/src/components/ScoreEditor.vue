@@ -21,6 +21,13 @@ interface LyricToken {
   endUs: number;
 }
 
+interface LyricCue {
+  id: string;
+  text: string;
+  startUs?: number;
+  endUs?: number;
+}
+
 interface Phrase {
   id: string;
   startUs: number;
@@ -49,6 +56,7 @@ interface Chart {
   notes: Note[];
   lyricTokens: LyricToken[];
   phrases: Phrase[];
+  lyricCues: LyricCue[];
   extensions?: any;
 }
 
@@ -138,6 +146,7 @@ const baseMidi = ref(69); // 基準キー / Base Pitch (Default A4 = 69, User ca
 // Audio Preview Playback State
 const isPlaying = ref(false);
 const playheadMs = ref(25000); // Start at vocal intro
+const previewVolumeDb = ref(-3);
 let playPollTimer: number | null = null;
 
 // High-Performance rAF Render Manager (Eliminates lag, locks to 60fps/144fps monitor sync)
@@ -171,7 +180,36 @@ const snapMode = ref<"off" | "16th" | "8th" | "4th">("16th");
 const editPanel = ref<"lyrics" | "tempo">("lyrics");
 const newLyricText = ref("");
 const newLyricRuby = ref("");
+const newLyricLines = ref("");
 const selectedLyricTokenIds = ref<Set<string>>(new Set());
+const metadataHeightPx = ref(340);
+let metadataResizeStartY = 0;
+let metadataResizeStartHeight = 340;
+
+function startMetadataResize(event: PointerEvent) {
+  event.preventDefault();
+  metadataResizeStartY = event.clientY;
+  metadataResizeStartHeight = metadataHeightPx.value;
+  window.addEventListener("pointermove", resizeMetadataPanel);
+  window.addEventListener("pointerup", stopMetadataResize, { once: true });
+  document.body.style.cursor = "ns-resize";
+  document.body.style.userSelect = "none";
+}
+
+function resizeMetadataPanel(event: PointerEvent) {
+  const availableHeight = Math.max(260, window.innerHeight - 250);
+  metadataHeightPx.value = Math.max(180, Math.min(availableHeight, metadataResizeStartHeight + metadataResizeStartY - event.clientY));
+  resizeCanvas();
+  requestRedraw();
+}
+
+function stopMetadataResize() {
+  window.removeEventListener("pointermove", resizeMetadataPanel);
+  document.body.style.cursor = "";
+  document.body.style.userSelect = "";
+  resizeCanvas();
+  requestRedraw();
+}
 
 // Drag state
 let isDragging = false;
@@ -225,15 +263,62 @@ function isBlackKey(midi: number): boolean {
   return idx === 1 || idx === 3 || idx === 6 || idx === 8 || idx === 10;
 }
 
-const bpm = computed(() => {
-  if (chart.value?.tempoMap?.events?.[0]?.bpm) {
-    return chart.value.tempoMap.events[0].bpm;
-  }
-  return 158.0;
+const bpm = computed<number>({
+  get() {
+    if (chart.value?.tempoMap?.events?.[0]?.bpm) {
+      return chart.value.tempoMap.events[0].bpm;
+    }
+    return 158.0;
+  },
+  set(rawValue) {
+    if (!chart.value?.tempoMap.events.length) return;
+    const numericValue = Number(rawValue);
+    if (!Number.isFinite(numericValue)) return;
+    chart.value.tempoMap.events[0].bpm = Math.max(20, Math.min(400, numericValue));
+    markPrimaryTempoAsManual();
+    requestRedraw();
+  },
 });
+const primaryBpmDraft = ref("158");
+const isPrimaryBpmEditing = ref(false);
+
+watch(bpm, (value) => {
+  if (!isPrimaryBpmEditing.value) primaryBpmDraft.value = String(value);
+}, { immediate: true });
 
 // Quarter beat duration in ms (at BPM 158: ~379.75ms)
 const quarterBeatMs = computed(() => (60.0 / bpm.value) * 1000.0);
+
+function markPrimaryTempoAsManual() {
+  const tempoEstimate = chart.value?.extensions?.tempoEstimate;
+  if (tempoEstimate) {
+    tempoEstimate.manuallyOverridden = true;
+    tempoEstimate.reviewRequired = false;
+  }
+}
+
+function startPrimaryBpmEdit() {
+  primaryBpmDraft.value = String(bpm.value);
+  isPrimaryBpmEditing.value = true;
+  saveSnapshot();
+}
+
+function commitPrimaryBpmEdit() {
+  const rawValue = primaryBpmDraft.value.trim();
+  const numericValue = Number(rawValue);
+  if (rawValue !== "" && Number.isFinite(numericValue)) bpm.value = numericValue;
+  isPrimaryBpmEditing.value = false;
+  primaryBpmDraft.value = String(bpm.value);
+}
+
+function cancelPrimaryBpmEdit() {
+  isPrimaryBpmEditing.value = false;
+  primaryBpmDraft.value = String(bpm.value);
+}
+
+function blurPrimaryBpmInput(event: Event) {
+  (event.target as HTMLInputElement).blur();
+}
 
 function snapTime(timeMs: number): number {
   if (snapMode.value === "off") return timeMs;
@@ -332,6 +417,8 @@ async function loadData() {
       }
     }
     chart.value = chartToOpen;
+    chartToOpen.lyricCues ??= [];
+    loadedChart.lyricCues ??= [];
 
     // Restore user settings if present in chart extensions
     if (chartToOpen.extensions?.vocalIntroMs !== undefined) {
@@ -369,8 +456,8 @@ async function loadData() {
   }
 }
 
-async function saveChart() {
-  if (!chart.value) return;
+async function saveChart(): Promise<boolean> {
+  if (!chart.value) return false;
   isSaving.value = true;
   saveMessage.value = "保存中...";
   try {
@@ -381,13 +468,17 @@ async function saveChart() {
     recoveryStatus.value = "";
     saveMessage.value = `✨ 譜面を保存しました (${chart.value.songId})`;
     setTimeout(() => { saveMessage.value = ""; }, 3000);
+    return true;
   } catch (err: any) {
     saveMessage.value = `❌ 保存エラー: ${err}`;
     console.error("Save error:", err);
+    return false;
   } finally {
     isSaving.value = false;
   }
 }
+
+defineExpose({ saveChart });
 
 function setPlayheadAsVocalIntro() {
   saveSnapshot();
@@ -1118,11 +1209,74 @@ function uniqueId(prefix: string): string {
     ...(chart.value?.notes.map((item) => item.id) ?? []),
     ...(chart.value?.lyricTokens.map((item) => item.id) ?? []),
     ...(chart.value?.phrases.map((item) => item.id) ?? []),
+    ...(chart.value?.lyricCues.map((item) => item.id) ?? []),
   ]);
   let id = `${prefix}_${Date.now()}`;
   let suffix = 1;
   while (existing.has(id)) id = `${prefix}_${Date.now()}_${suffix++}`;
   return id;
+}
+
+function sortLyricCues() {
+  chart.value?.lyricCues.sort((a, b) =>
+    (a.startUs ?? Number.MAX_SAFE_INTEGER) - (b.startUs ?? Number.MAX_SAFE_INTEGER)
+    || (a.endUs ?? Number.MAX_SAFE_INTEGER) - (b.endUs ?? Number.MAX_SAFE_INTEGER));
+}
+
+function addTimedLyricLines() {
+  if (!chart.value) return;
+  const lines = newLyricLines.value.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  if (lines.length === 0) return;
+  saveSnapshot();
+  for (const line of lines) {
+    chart.value.lyricCues.push({
+      id: uniqueId("cue"),
+      text: line,
+    });
+  }
+  sortLyricCues();
+  newLyricLines.value = "";
+}
+
+function setCueBoundary(cue: LyricCue, boundary: "start" | "end") {
+  if (!chart.value) return;
+  saveSnapshot();
+  const nowUs = Math.max(0, Math.min(chart.value.durationUs, Math.round(playheadMs.value * 1000)));
+  if (boundary === "start") {
+    cue.startUs = nowUs;
+    if (cue.endUs !== undefined && cue.endUs <= nowUs) cue.endUs = undefined;
+  } else {
+    cue.endUs = nowUs;
+    if (cue.startUs !== undefined && cue.startUs >= nowUs) cue.startUs = undefined;
+  }
+  sortLyricCues();
+}
+
+function updateCueSeconds(cue: LyricCue, boundary: "start" | "end", rawValue: string) {
+  if (!chart.value) return;
+  if (rawValue.trim() === "") {
+    cue[boundary === "start" ? "startUs" : "endUs"] = undefined;
+    sortLyricCues();
+    return;
+  }
+  const valueUs = Math.round(Number(rawValue) * 1_000_000);
+  if (!Number.isFinite(valueUs)) return;
+  if (boundary === "start") cue.startUs = Math.max(0, Math.min(valueUs, chart.value.durationUs));
+  else cue.endUs = Math.max(0, Math.min(valueUs, chart.value.durationUs));
+  sortLyricCues();
+}
+
+function jumpToCue(cue: LyricCue) {
+  if (cue.startUs === undefined) return;
+  playheadMs.value = cue.startUs / 1000;
+  scrollMs.value = Math.max(0, playheadMs.value - 1000);
+  requestRedraw();
+}
+
+function deleteLyricCue(cueId: string) {
+  if (!chart.value) return;
+  saveSnapshot();
+  chart.value.lyricCues = chart.value.lyricCues.filter((cue) => cue.id !== cueId);
 }
 
 function inputValue(event: Event): string {
@@ -1263,6 +1417,16 @@ function updateTempoEvent(index: number, field: "timeUs" | "bpm", rawValue: stri
   chart.value.tempoMap.events.sort((a, b) => a.timeUs - b.timeUs);
 }
 
+function normalizeTempoBpm(index: number) {
+  if (!chart.value) return;
+  const event = chart.value.tempoMap.events[index];
+  if (!event) return;
+  const numericValue = Number(event.bpm);
+  event.bpm = Math.max(20, Math.min(400, Number.isFinite(numericValue) ? numericValue : 120));
+  if (index === 0) markPrimaryTempoAsManual();
+  requestRedraw();
+}
+
 function deleteTempoEvent(index: number) {
   if (!chart.value || index === 0) return;
   saveSnapshot();
@@ -1297,6 +1461,7 @@ async function togglePlay() {
         startMs: playheadMs.value,
         renderDeviceId: null,
         songId: props.songId,
+        volumeDb: previewVolumeDb.value,
       });
       isPlaying.value = true;
 
@@ -1417,6 +1582,7 @@ onMounted(async () => {
 watch([chart, vocalIntroSec, baseMidi], scheduleRecovery, { deep: true });
 
 onUnmounted(() => {
+  stopMetadataResize();
   window.removeEventListener("keydown", handleKeyDown);
   if (animFrameId) cancelAnimationFrame(animFrameId);
   if (playPollTimer) clearInterval(playPollTimer);
@@ -1440,6 +1606,16 @@ onUnmounted(() => {
         <span class="time-display" title="現在の再生位置">
           {{ (playheadMs / 1000).toFixed(2) }}s
         </span>
+        <label class="toolbar-label">試聴音量 {{ previewVolumeDb }} dB</label>
+        <input
+          v-model.number="previewVolumeDb"
+          type="range"
+          min="-60"
+          max="6"
+          step="1"
+          :disabled="isPlaying"
+          title="譜面エディターの試聴音量"
+        />
       </div>
 
       <!-- Quick Navigation -->
@@ -1498,6 +1674,24 @@ onUnmounted(() => {
         <button class="btn btn-secondary btn-xs" @click="shiftAllNotes(1)" title="全ノーツと基準キーを半音上げる (Key +1)">
           ♯ +1
         </button>
+      </div>
+
+      <div class="toolbar-group highlight-box" title="曲全体の基準BPMを手動で変更">
+        <label class="toolbar-label">BPM:</label>
+        <input
+          class="toolbar-number-input bpm-input"
+          type="number"
+          min="20"
+          max="400"
+          step="0.01"
+          :value="primaryBpmDraft"
+          @input="primaryBpmDraft = inputValue($event)"
+          @focus="startPrimaryBpmEdit"
+          @blur="commitPrimaryBpmEdit"
+          @keydown.enter.prevent="blurPrimaryBpmInput"
+          @keydown.escape.prevent="cancelPrimaryBpmEdit"
+        />
+        <span class="toolbar-unit">手動</span>
       </div>
 
       <!-- History Controls -->
@@ -1590,10 +1784,13 @@ onUnmounted(() => {
       ></canvas>
     </div>
 
-    <section class="metadata-editor">
+    <section class="metadata-editor" :style="{ flexBasis: `${metadataHeightPx}px` }">
+      <div class="metadata-resize-handle" title="上下にドラッグして編集欄の高さを変更" @pointerdown="startMetadataResize">
+        <span></span>
+      </div>
       <div class="metadata-tabs">
         <button class="metadata-tab" :class="{ active: editPanel === 'lyrics' }" @click="editPanel = 'lyrics'">
-          歌詞・フレーズ ({{ chart?.lyricTokens.length ?? 0 }})
+          歌詞 ({{ chart?.lyricCues.length ?? 0 }})
         </button>
         <button class="metadata-tab" :class="{ active: editPanel === 'tempo' }" @click="editPanel = 'tempo'">
           BPM・テンポ ({{ chart?.tempoMap.events.length ?? 0 }})
@@ -1601,6 +1798,57 @@ onUnmounted(() => {
       </div>
 
       <div v-if="editPanel === 'lyrics'" class="metadata-content lyrics-editor">
+        <section class="timed-lyrics-editor">
+          <div class="timed-lyrics-heading">
+            <div>
+              <strong>時間で追従する歌詞（おすすめ）</strong>
+              <span>1行を1区切りとして貼り付け、再生しながら開始・終了を現在位置へ合わせます。ノーツ選択は不要です。</span>
+            </div>
+            <button class="btn btn-primary btn-sm" :disabled="!newLyricLines.trim()" @click="addTimedLyricLines">
+              現在位置から追加
+            </button>
+          </div>
+          <textarea
+            v-model="newLyricLines"
+            class="metadata-input timed-lyrics-paste"
+            rows="4"
+            placeholder="歌詞を1区切り1行で貼り付け"
+          ></textarea>
+          <p class="timed-lyrics-help">
+            追加直後の時刻は未定です。曲を再生し、各行の「開始＝現在」「終了＝現在」で設定してください。
+          </p>
+          <div class="metadata-scroll timed-cues-scroll">
+            <table class="metadata-table timed-cues-table">
+              <thead>
+                <tr><th>#</th><th>開始秒</th><th>終了秒</th><th>歌詞</th><th>タイミング</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr v-if="(chart?.lyricCues.length ?? 0) === 0">
+                  <td colspan="6" class="empty-metadata">まだ時間歌詞がありません。上へ歌詞を行単位で貼り付けてください。</td>
+                </tr>
+                <tr v-for="(cue, index) in chart?.lyricCues ?? []" :key="cue.id">
+                  <td class="mono">{{ index + 1 }}</td>
+                  <td>
+                    <input class="metadata-input number-input" type="number" min="0" step="0.01" placeholder="未定" :value="cue.startUs === undefined ? '' : (cue.startUs / 1e6).toFixed(2)" @focus="saveSnapshot" @change="updateCueSeconds(cue, 'start', inputValue($event))" />
+                  </td>
+                  <td>
+                    <input class="metadata-input number-input" type="number" min="0" step="0.01" placeholder="未定" :value="cue.endUs === undefined ? '' : (cue.endUs / 1e6).toFixed(2)" @focus="saveSnapshot" @change="updateCueSeconds(cue, 'end', inputValue($event))" />
+                  </td>
+                  <td><input v-model="cue.text" class="metadata-input cue-text-input" @focus="saveSnapshot" /></td>
+                  <td class="cue-actions">
+                    <button class="btn btn-secondary btn-xs" @click="setCueBoundary(cue, 'start')">開始＝現在</button>
+                    <button class="btn btn-secondary btn-xs" @click="setCueBoundary(cue, 'end')">終了＝現在</button>
+                    <button class="btn btn-secondary btn-xs" :disabled="cue.startUs === undefined" @click="jumpToCue(cue)">移動</button>
+                  </td>
+                  <td><button class="btn btn-danger btn-xs" @click="deleteLyricCue(cue.id)">削除</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <details v-if="false" class="legacy-lyrics-editor">
+          <summary>旧ノーツ連動歌詞（互換用）</summary>
         <div class="lyric-compose">
           <strong>選択ノーツへ歌詞を割り当て</strong>
           <input v-model="newLyricText" class="metadata-input lyric-text-input" placeholder="歌詞（例：シャイニング）" />
@@ -1657,6 +1905,7 @@ onUnmounted(() => {
             <button @click="deletePhrase(phrase.id)" title="フレーズだけ削除">×</button>
           </span>
         </div>
+        </details>
       </div>
 
       <div v-else class="metadata-content tempo-editor">
@@ -1693,8 +1942,9 @@ onUnmounted(() => {
               min="20"
               max="400"
               step="0.01"
-              :value="event.bpm"
-              @change="updateTempoEvent(index, 'bpm', inputValue($event))"
+              v-model.number="event.bpm"
+              @focus="saveSnapshot"
+              @change="normalizeTempoBpm(index)"
             />
             <button class="btn btn-danger btn-xs" :disabled="index === 0" @click="deleteTempoEvent(index)">削除</button>
           </div>
@@ -1917,12 +2167,37 @@ onUnmounted(() => {
 }
 
 .metadata-editor {
-  flex: 0 0 220px;
+  flex: 0 0 340px;
   display: flex;
   flex-direction: column;
   min-height: 0;
   background: #10131c;
   border-top: 1px solid #293044;
+}
+
+.metadata-resize-handle {
+  flex: 0 0 10px;
+  display: grid;
+  place-items: center;
+  cursor: ns-resize;
+  background: #0d111a;
+  border-bottom: 1px solid #293044;
+  touch-action: none;
+}
+
+.metadata-resize-handle span {
+  width: 54px;
+  height: 3px;
+  border-radius: 999px;
+  background: #475569;
+}
+
+.metadata-resize-handle:hover span {
+  background: #22d3ee;
+}
+
+.bpm-input {
+  width: 72px;
 }
 
 .metadata-tabs {
@@ -1959,10 +2234,72 @@ onUnmounted(() => {
 }
 
 .lyrics-editor {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.timed-lyrics-editor {
+  flex: 1;
+  min-height: 0;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto minmax(70px, 1fr) auto;
-  gap: 7px;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+  gap: 8px;
+}
+
+.timed-lyrics-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.timed-lyrics-heading div {
+  display: grid;
+  gap: 3px;
+}
+
+.timed-lyrics-heading span,
+.timed-lyrics-help {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.timed-lyrics-paste {
+  width: 100%;
+  min-height: 76px;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.timed-cues-scroll {
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.timed-cues-table .cue-text-input {
+  min-width: 300px;
+}
+
+.cue-actions {
+  display: flex;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.legacy-lyrics-editor {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #35405a;
+}
+
+.legacy-lyrics-editor summary {
+  margin-bottom: 8px;
+  color: #94a3b8;
+  cursor: pointer;
 }
 
 .lyric-compose,

@@ -1,0 +1,6 @@
+{
+  "product": "KARAOKE-GB",
+  "platform": "windows-x64",
+  "setup": "START_KARAOKE-GB.bat",
+  "dataDirectories": ["library", "exports", "recordings", "logs"]
+}

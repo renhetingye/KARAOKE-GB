@@ -31,6 +31,7 @@ impl EditorAudioPlayer {
         backing: Arc<CanonicalAudio>,
         start_ms: f64,
         render_device_id: Option<&str>,
+        volume_db: f32,
     ) -> Result<Self, String> {
         let sample_rate = backing.sample_rate;
         let start_frame = ((start_ms / 1000.0) * sample_rate as f64).max(0.0) as usize;
@@ -43,6 +44,7 @@ impl EditorAudioPlayer {
         let total_frames = backing.frames;
         let backing_data = backing.clone();
         let mut source_position = start_frame as f64;
+        let gain = 10.0f32.powf(volume_db.clamp(-60.0, 6.0) / 20.0);
 
         let stream = WasapiRenderStream::start(
             render_device_id,
@@ -70,7 +72,7 @@ impl EditorAudioPlayer {
                                 .copied()
                                 .unwrap_or(current);
                             out_buf[i * output_channels + ch] =
-                                (current + (next - current) * fraction) * 0.8;
+                                (current + (next - current) * fraction) * gain;
                         }
                     } else {
                         for ch in 0..output_channels {
@@ -305,10 +307,33 @@ fn recovery_path(song: &SongDescriptor) -> Result<PathBuf, String> {
 }
 
 fn workspace_path(relative: &str) -> PathBuf {
-    Path::new(env!("CARGO_MANIFEST_DIR"))
-        .ancestors()
-        .nth(3)
-        .expect("src-tauri must be inside the workspace")
+    if let Ok(configured_root) = std::env::var("KARAOKE_GB_ROOT") {
+        return PathBuf::from(configured_root).join(relative);
+    }
+    if let Ok(configured_root) = std::env::var("KARAOKE_STUDIO_ROOT") {
+        return PathBuf::from(configured_root).join(relative);
+    }
+
+    let executable_dir = std::env::current_exe()
+        .ok()
+        .and_then(|path| path.parent().map(Path::to_path_buf));
+    if let Some(directory) = executable_dir {
+        // Development binaries live under target/debug or target/release.
+        // A distributed binary lives directly in the portable application root.
+        if directory
+            .parent()
+            .and_then(Path::file_name)
+            .is_some_and(|name| name == "target")
+        {
+            if let Some(workspace_root) = directory.parent().and_then(Path::parent) {
+                return workspace_root.join(relative);
+            }
+        }
+        return directory.join(relative);
+    }
+
+    std::env::current_dir()
+        .unwrap_or_else(|_| PathBuf::from("."))
         .join(relative)
 }
 
@@ -876,7 +901,7 @@ fn export_song_package(song_id: String) -> Result<String, String> {
     let file = PackageWriter::write_package(
         file,
         &song.song_id,
-        "KARAOKE STUDIO PRO",
+        "KARAOKE-GB",
         &chart_bytes,
         &package_backing_path,
         &backing_bytes,
@@ -1126,6 +1151,7 @@ fn start_synthetic_session(
         0,
         1.0,
         true,
+        -3.0,
         MonitorConfig::default(),
         None,
     )
@@ -1147,6 +1173,7 @@ fn start_karaoke_session(
     vocal_octave_offset: Option<i32>,
     speed_ratio: Option<f32>,
     octave_tolerance: Option<bool>,
+    playback_backing_gain_db: Option<f32>,
     monitor_config: Option<MonitorConfig>,
     recording_enabled: Option<bool>,
     mix_backing_gain_db: Option<f32>,
@@ -1244,6 +1271,7 @@ fn start_karaoke_session(
         vocal_octave,
         speed as f64,
         octave_tolerance.unwrap_or(true),
+        playback_backing_gain_db.unwrap_or(-3.0),
         monitor_config.unwrap_or_default(),
         recording_config,
     )
@@ -1313,6 +1341,7 @@ fn start_editor_preview(
     start_ms: f64,
     render_device_id: Option<String>,
     song_id: Option<String>,
+    volume_db: Option<f32>,
 ) -> Result<bool, String> {
     let mut player_lock = state.editor_player.lock().unwrap();
     if let Some(mut p) = player_lock.take() {
@@ -1344,7 +1373,12 @@ fn start_editor_preview(
     };
 
     let clean_render_id = render_device_id.filter(|s| !s.trim().is_empty());
-    let player = EditorAudioPlayer::start(audio_arc, start_ms, clean_render_id.as_deref())?;
+    let player = EditorAudioPlayer::start(
+        audio_arc,
+        start_ms,
+        clean_render_id.as_deref(),
+        volume_db.unwrap_or(-3.0),
+    )?;
     *player_lock = Some(player);
     Ok(true)
 }
@@ -1600,9 +1634,6 @@ pub fn run() {
                 eprintln!("[!] Warning: 'main' window not found!");
             }
             Ok(())
-        })
-        .on_window_event(|window, event| {
-            println!("[*] WindowEvent on {:?}: {:?}", window.label(), event);
         })
         .manage(AppState {
             pipeline: Mutex::new(None),

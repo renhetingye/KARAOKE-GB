@@ -2,7 +2,7 @@ pub mod chart;
 pub mod package;
 
 pub use chart::{
-    Chart, ChartValidationError, LyricToken, MediaEntry, Note, Phrase, TempoMap, Track,
+    Chart, ChartValidationError, LyricCue, LyricToken, MediaEntry, Note, Phrase, TempoMap, Track,
 };
 pub use package::{
     FileRole, ManifestFileEntry, PackageError, PackageManifest, PackageReader, PackageWriter,
@@ -125,11 +125,30 @@ mod tests {
           "extensions": {}
         }"#;
 
-        let chart: Chart = serde_json::from_str(synthetic_json).expect("Deserialization failed");
+        let mut chart: Chart =
+            serde_json::from_str(synthetic_json).expect("Deserialization failed");
         assert_eq!(chart.schema_version, "2.0.0");
+        assert!(
+            chart.lyric_cues.is_empty(),
+            "legacy charts default to no timed lyric cues"
+        );
         chart
             .validate_semantics()
             .expect("Semantic validation should pass");
+
+        chart.lyric_cues.push(LyricCue {
+            id: "cue1".to_string(),
+            text: "A whole lyric line".to_string(),
+            start_us: Some(500_000),
+            end_us: Some(1_500_000),
+        });
+        chart
+            .validate_semantics()
+            .expect("timed lyric cue should validate");
+        let encoded = serde_json::to_string(&chart).expect("timed lyric cue should serialize");
+        let decoded: Chart = serde_json::from_str(&encoded).expect("timed lyric cue should reload");
+        assert_eq!(decoded.lyric_cues.len(), 1);
+        assert_eq!(decoded.lyric_cues[0].text, "A whole lyric line");
     }
 
     #[test]

@@ -1,4 +1,7 @@
 /target/
+/release/
+/配布SET/
+/*.zip
 node_modules/
 dist/
 *.pdb

@@ -31,6 +31,8 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $executablePath = Join-Path $projectRoot 'target\release\appsdesktop.exe'
+$brandedExecutablePath = Join-Path $projectRoot 'target\release\KARAOKE-GB.exe'
+Copy-Item -LiteralPath $executablePath -Destination $brandedExecutablePath -Force
 $hash = Get-FileHash -LiteralPath $executablePath -Algorithm SHA256
-Write-Host "[+] Release ready: $executablePath" -ForegroundColor Green
+Write-Host "[+] Release ready: $brandedExecutablePath" -ForegroundColor Green
 Write-Host "[+] SHA-256: $($hash.Hash)" -ForegroundColor Green

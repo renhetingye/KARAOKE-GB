@@ -133,15 +133,30 @@ interface ChartData {
     extensions?: { status?: string };
   }>;
   lyricTokens?: Array<{
+    id: string;
     text: string;
     noteIds: string[];
     startUs: number;
     endUs: number;
   }>;
+  phrases?: Array<{
+    id: string;
+    startUs: number;
+    endUs: number;
+    tokenIds: string[];
+  }>;
+  lyricCues?: Array<{
+    id: string;
+    text: string;
+    startUs?: number;
+    endUs?: number;
+  }>;
 }
 
 import ScoreEditor from "./components/ScoreEditor.vue";
 import AudioAnalyzer from "./components/AudioAnalyzer.vue";
+
+const scoreEditorRef = ref<{ saveChart: () => Promise<boolean> } | null>(null);
 
 // System & Devices state
 const sysInfo = ref<SystemInfo | null>(null);
@@ -166,6 +181,15 @@ function openScoreEditor() {
   // until it has been stopped so the user can always reach the stop button.
   if (isRunningAny.value) return;
   activeTab.value = "score-editor";
+}
+
+async function openKaraoke() {
+  if (activeTab.value === "score-editor") {
+    const saved = await scoreEditorRef.value?.saveChart();
+    if (!saved) return;
+  }
+  await loadChart(false);
+  activeTab.value = "karaoke-session";
 }
 
 // Real-time Mic Diagnostic Telemetry
@@ -236,6 +260,7 @@ const karaokeBaseMidi = ref<number>(69); // 基準キー / Base Pitch (デフォ
 const SINGER_KEY_LIMIT = 6;
 const singerKeySemitones = ref<number>(0);
 const playbackSpeedRatio = ref<number>(1.0);
+const playbackBackingGainDb = ref<number>(-3);
 const octaveMode = ref<"auto" | "low" | "original" | "high">("auto");
 const recordingEnabled = ref(false);
 const mixBackingGainDb = ref(-6);
@@ -321,6 +346,33 @@ function shiftKaraokeView(deltaSemi: number) {
 
 // Notes and pitch trails
 const targetNotes = ref<TargetNote[]>([]);
+interface DisplayLyricCue {
+  id: string;
+  text: string;
+  startMs: number;
+  endMs: number;
+}
+const lyricCues = ref<DisplayLyricCue[]>([]);
+const activeLyricIndex = computed(() => {
+  if (lyricCues.value.length === 0) return -1;
+  const now = currentSongTimeMs.value;
+  if (now < lyricCues.value[0].startMs) return -1;
+  const active = lyricCues.value.findIndex((cue) => now >= cue.startMs && now < cue.endMs);
+  if (active >= 0) return active;
+  const next = lyricCues.value.findIndex((cue) => now < cue.startMs);
+  return next >= 0 ? next : -1;
+});
+const visibleLyricCues = computed(() => {
+  const active = activeLyricIndex.value;
+  if (lyricCues.value.length === 0) return [];
+  const first = active < 0
+    ? (currentSongTimeMs.value < lyricCues.value[0].startMs ? 0 : Math.max(0, lyricCues.value.length - 7))
+    : Math.max(0, Math.min(active - 3, lyricCues.value.length - 7));
+  return lyricCues.value.slice(first, first + 7).map((cue, offset) => ({
+    ...cue,
+    index: first + offset,
+  }));
+});
 const pitchHistory: Array<{ midi: number; voiced: boolean; timeMs: number }> = [];
 const displayMidiWindow: number[] = [];
 let lastDisplayedMidi: number | null = null;
@@ -440,6 +492,7 @@ async function loadSongs() {
     currentSongTimeMs.value = 0;
     songDurationMs.value = 0;
     targetNotes.value = [];
+    lyricCues.value = [];
   }
 }
 
@@ -584,6 +637,39 @@ async function loadChart(isSynthetic: boolean = false) {
             lyricMap[nid] = tok.text;
           }
         }
+      }
+
+      if (chart.lyricCues && chart.lyricCues.length > 0) {
+        lyricCues.value = chart.lyricCues
+          .filter((cue): cue is typeof cue & { startUs: number; endUs: number } =>
+            typeof cue.startUs === "number" && typeof cue.endUs === "number" && cue.endUs > cue.startUs)
+          .map((cue) => ({
+            id: cue.id,
+            text: cue.text,
+            startMs: cue.startUs / 1000,
+            endMs: cue.endUs / 1000,
+          }))
+          .sort((a, b) => a.startMs - b.startMs);
+      } else if (chart.phrases?.length && chart.lyricTokens?.length) {
+        const tokensById = new Map(chart.lyricTokens.map((token) => [token.id, token]));
+        lyricCues.value = chart.phrases
+          .map((phrase) => ({
+            id: `legacy_${phrase.id}`,
+            text: phrase.tokenIds.map((id) => tokensById.get(id)?.text ?? "").join("").trim(),
+            startMs: phrase.startUs / 1000,
+            endMs: phrase.endUs / 1000,
+          }))
+          .filter((cue) => cue.text.length > 0)
+          .sort((a, b) => a.startMs - b.startMs);
+      } else {
+        lyricCues.value = (chart.lyricTokens ?? [])
+          .map((token) => ({
+            id: `legacy_${token.id}`,
+            text: token.text,
+            startMs: token.startUs / 1000,
+            endMs: token.endUs / 1000,
+          }))
+          .sort((a, b) => a.startMs - b.startMs);
       }
 
       targetNotes.value = chart.notes.map((n) => {
@@ -1043,6 +1129,7 @@ async function startKaraokeWithOffset(startOffsetSecs: number) {
           vocalOctaveOffset: selectedVocalOctaveOffset(),
           speedRatio: playbackSpeedRatio.value,
           octaveTolerance: usesAutomaticOctaveMatching(),
+          playbackBackingGainDb: playbackBackingGainDb.value,
           monitorConfig: monitorConfig.value,
           recordingEnabled: recordingEnabled.value,
           mixBackingGainDb: mixBackingGainDb.value,
@@ -1150,7 +1237,7 @@ onUnmounted(() => {
     <!-- Top Header -->
     <header class="app-header">
       <div class="header-left">
-        <h1>KARAOKE STUDIO <span class="badge-audit">AUDIT MODE</span></h1>
+        <h1>KARAOKE-GB <span class="badge-audit">AUDIT MODE</span></h1>
         <p class="subtitle">WASAPI Direct Low-Latency Audio Engine & Step-by-Step Diagnostic Suite</p>
       </div>
       <div class="header-right" v-if="sysInfo">
@@ -1238,7 +1325,7 @@ onUnmounted(() => {
       <button
         class="tab-btn karaoke-tab-btn"
         :class="{ active: activeTab === 'karaoke-session' }"
-        @click="activeTab = 'karaoke-session'"
+        @click="openKaraoke"
         :disabled="isRunningAny && !isKaraokeRunning && !isPreparingKey && activeTab !== 'karaoke-session'"
       >
         <span class="tab-step">歌唱</span>
@@ -1299,7 +1386,7 @@ onUnmounted(() => {
 
     <!-- Main Score Editor Mode -->
     <div v-else-if="activeTab === 'score-editor'" class="editor-view-wrapper">
-      <ScoreEditor :song-id="selectedSongId" @requestAnalysis="activeTab = 'audio-analyzer'" />
+      <ScoreEditor ref="scoreEditorRef" :song-id="selectedSongId" @requestAnalysis="activeTab = 'audio-analyzer'" />
     </div>
 
     <!-- Main Workspace Area -->
@@ -1604,6 +1691,14 @@ onUnmounted(() => {
             </p>
           </section>
 
+          <section class="recording-panel">
+            <label class="dsp-control">
+              <span>伴奏の再生音量 <b>{{ playbackBackingGainDb > 0 ? "+" : "" }}{{ playbackBackingGainDb }} dB</b></span>
+              <input v-model.number="playbackBackingGainDb" type="range" min="-60" max="6" step="1" :disabled="isRunningAny" />
+            </label>
+            <small>次回のカラオケ再生開始時に適用されます。</small>
+          </section>
+
           <section class="recording-panel" :class="{ enabled: recordingEnabled }">
             <label class="recording-toggle">
               <input v-model="recordingEnabled" type="checkbox" :disabled="isRunningAny" />
@@ -1799,6 +1894,21 @@ onUnmounted(() => {
             <li><strong>[VOICED]</strong>: 有声ピッチ検出中 → 正常動作</li>
           </ul>
         </div>
+
+        <section class="lyrics-side-panel" aria-label="時間同期歌詞">
+          <div class="lyrics-side-title">歌詞</div>
+          <TransitionGroup v-if="visibleLyricCues.length" name="lyric-scroll" tag="div" class="timed-lyrics" aria-live="polite">
+            <div
+              v-for="cue in visibleLyricCues"
+              :key="cue.id"
+              class="timed-lyric-line"
+              :class="{ active: cue.index === activeLyricIndex, past: cue.index < activeLyricIndex }"
+            >
+              {{ cue.text }}
+            </div>
+          </TransitionGroup>
+          <div v-else class="lyrics-empty">譜面エディターで時間歌詞を追加すると、ここへ曲に合わせて表示されます。</div>
+        </section>
       </aside>
     </div>
   </main>
@@ -1938,14 +2048,31 @@ onUnmounted(() => {
 }
 
 .audio-import-dropzone {
-  min-height: 108px;
+  min-height: 44px;
+  padding: 5px 8px;
+  flex-wrap: nowrap;
   border: 2px dashed #38bdf8;
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.13), rgba(99, 102, 241, 0.08));
 }
 
 .audio-import-dropzone .package-drop-copy strong {
   color: #7dd3fc;
-  font-size: 17px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.audio-import-dropzone .package-drop-copy span {
+  display: none;
+}
+
+.audio-import-dropzone .package-drop-copy {
+  flex: 1 1 auto;
+  min-width: 180px;
+}
+
+.audio-import-dropzone .btn {
+  padding: 6px 9px;
+  font-size: 11px;
 }
 
 .package-row.package-drag-over {
@@ -2454,6 +2581,82 @@ onUnmounted(() => {
   display: block;
 }
 
+.lyrics-side-panel {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.lyrics-side-title {
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.timed-lyrics {
+  height: 360px;
+  overflow: hidden;
+  padding: 18px 20px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background: #2d353e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.timed-lyric-line {
+  min-height: 38px;
+  color: #9aa5b1;
+  font-size: clamp(18px, 1.35vw, 25px);
+  font-weight: 700;
+  line-height: 1.25;
+  opacity: 0.72;
+  transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+
+.timed-lyric-line.active {
+  color: #ffffff;
+  opacity: 1;
+  transform: scale(1.025);
+  transform-origin: left center;
+}
+
+.timed-lyric-line.past {
+  color: #7f8a96;
+  opacity: 0.58;
+}
+
+.lyric-scroll-move,
+.lyric-scroll-enter-active,
+.lyric-scroll-leave-active {
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.lyric-scroll-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.lyric-scroll-leave-active {
+  position: absolute;
+}
+
+.lyric-scroll-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.lyrics-empty {
+  padding: 18px;
+  border: 1px dashed #334155;
+  border-radius: 8px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 /* Cent Deviation Bar */
 .cent-bar-wrapper {
   background: #0f172a;
@@ -2587,6 +2790,11 @@ onUnmounted(() => {
 }
 
 /* Telemetry Card */
+.telemetry-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .telemetry-card h2 {
   font-size: 15px;
   margin: 0 0 2px 0;

@@ -52,7 +52,7 @@ fn main() -> Result<()> {
             let file = PackageWriter::write_package(
                 file,
                 &chart.song_id,
-                "KARAOKE STUDIO PRO CLI",
+                "KARAOKE-GB CLI",
                 &chart_bytes,
                 &package_backing,
                 &backing_bytes,
@@ -668,6 +668,7 @@ fn main() -> Result<()> {
                 0,
                 1.0,
                 true,
+                -3.0,
                 karaoke_audio_engine::MonitorConfig::default(),
                 None,
             )

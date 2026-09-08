@@ -1,11 +1,27 @@
-# KARAOKE STUDIO PRO
+# KARAOKE-GB
 
-Windows上で動作する、ローカル処理中心のカラオケ練習・音程解析システムです。
+Windows上で動作する、ローカル処理中心のカラオケ練習・音程解析システムです。`GB`はプロジェクト所有者の活動名「GODBABY」の頭文字です。
 
 音声ファイルを登録すると、ボーカル分離、歌声F0解析、音程バー生成、BPM候補生成、カラオケ用パッケージ（`.kpk`）保存までを自動で進めます。マイク入力を使ったリアルタイム音程表示、採点、キー・速度調整、マイクモニター、音声エフェクト、録音、譜面編集にも対応しています。
 
 > [!WARNING]
-> 現在は開発版です。一般利用者向けインストーラー、完全な依存関係同梱、全機材での動作保証、AI譜面の精度保証はまだありません。
+> 現在は開発版です。ポータブルZIPと初回自動セットアップを提供していますが、全機材での動作保証、AI譜面の精度保証、コード署名はまだありません。
+
+## ポータブル版を使う（利用者向け）
+
+GitHubのReleasesから`KARAOKE-GB-*-windows-x64-portable.zip`をダウンロードします。対応環境はWindows 10／11の64bit版です。
+
+1. ZIPを右クリックして「すべて展開」します。ZIPの中から直接起動しないでください。
+2. `C:\KARAOKE-GB`など、短い場所へ展開することを推奨します。
+3. `START_KARAOKE-GB.bat`をダブルクリックします。
+4. 初回のみ、Microsoft WebView2 Runtime、Python 3.11、専用Python環境、Demucs、PyTorch、解析モデルを確認し、不足分を自動導入します。
+5. 準備が完了するとKARAOKE-GBが自動で起動します。2回目以降も同じBATから起動してください。
+
+初回セットアップにはインターネット接続と8GB以上の空き容量を推奨します。Python解析パッケージのダウンロードが大きいため、PCや回線によって10分以上かかる場合があります。セットアップ中はコンソールを閉じないでください。
+
+起動に失敗した場合は、`logs/`内の最新の`startup-*.log`を確認してください。友人へログを送る場合、曲、録音、`library/`などの個人データは添付しないでください。
+
+ポータブルとは「アプリ本体とデータを1フォルダーで持ち運べる」という意味です。初回依存関係はWindows側と各配布フォルダーへ導入するため、別PCではそのPCごとに初回セットアップが必要です。完全オフライン版ではありません。
 
 ## 画面例
 
@@ -29,8 +45,9 @@ Windows上で動作する、ローカル処理中心のカラオケ練習・音�
 
 ただし、次の操作にはインターネット接続が必要です。
 
-- 初回開発環境構築時のRust、npm、Python依存関係の取得
-- 任意のGAME ONNX解析モデルのダウンロード
+- ポータブル版の初回起動時に行うWebView2、Python、Python解析依存関係の取得
+- 不足しているGAME ONNX／RMVPE解析モデルの取得
+- ソース開発環境構築時のRust、npm、Python依存関係の取得
 - GitHubからのソース取得・更新
 
 `library/`、`exports/`、解析モデル、録音、Python仮想環境、ビルド成果物はGit管理対象外です。
@@ -72,6 +89,27 @@ AI解析では、主旋律ではなくハモリや伴奏を拾う、音符境界
 
 音源の著作権や配布条件は`.kpk`を作成・配布する人が確認してください。このリポジトリは市販曲、利用許諾のない音源、ユーザーの録音を配布しません。
 
+## ポータブルZIPを作成する（配布者向け）
+
+開発PCで次を実行すると、個人の曲・録音・ログを含まないポータブルZIPとSHA-256ファイルを`release/`へ生成します。
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build_portable.ps1 -Version v0.1.0
+```
+
+配布前にSHA-256を受取人へ別経路で伝えてください。`library/`、`exports/`、`recordings/`、`logs/`、Python仮想環境はZIPへコピーしません。解析モデルはハッシュ確認済みのものだけを同梱します。
+
+## GitHub Releaseへ自動配置する
+
+`.github/workflows/release-portable.yml`が、`v`で始まるタグをpushした時にWindows版をビルドし、ポータブルZIPとSHA-256を同名のGitHub Releaseへ添付します。
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+GitHubのActions画面から手動実行し、リリースタグを指定することもできます。Releaseへ置かれるZIPには曲・録音・利用者データを含めません。
+
 ## ソースからビルドして起動する
 
 対応環境は現在Windowsのみです。
@@ -88,10 +126,12 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build_release.ps1
 ```powershell
 .\run_diagnostic_ui.ps1
 # または直接起動
-.\target\release\appsdesktop.exe
+.\target\release\KARAOKE-GB.exe
 ```
 
 `run_diagnostic_ui.ps1`は実行ファイルと埋め込み済みWeb UIを確認してから起動します。直接の`cargo build --release`では最新のWeb UIが実行ファイルへ埋め込まれない可能性があるため、使用しないでください。
+
+初回実行時はPython 3.11、専用仮想環境、Demucsを含む解析依存関係、GAMEモデルを確認し、不足分を自動導入します。リリースEXEがない開発環境ではNode.jsとRustも確認してビルドします。実行内容とエラーは`logs/`へ保存されます。既に準備済みの環境で診断だけ行う場合は`-SkipSetup`を指定できます。
 
 開発には概ね次が必要です。
 
@@ -103,7 +143,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build_release.ps1
 - Demucs、PyTorch、librosa、soundfile、scipy等の解析依存関係
 - 任意：GAME 1.0.3 small ONNXモデル
 
-解析環境の完全自動セットアップとエンドユーザー用インストーラーは未完成です。
+エンドユーザー向けのMSI／EXEインストーラーは提供していません。配布にはポータブルZIPを使用してください。
 
 ## 開発資料
 
@@ -119,10 +159,10 @@ Issueには可能な範囲で、再現手順、期待した動作、実際の動
 
 - AI音程バーの商用品質レベルの精度評価
 - 部分再解析と手動編集競合の完全な保護
-- 歌詞入力・ワイプの完成
+- 文字単位の歌詞ワイプ（現在は行単位の時間同期歌詞）
 - 全音声デバイスでの切断・復旧試験
 - 録音／MIX／DSPの品質評価とプリセット
-- 完全オフライン配布物、インストーラー、更新機構
+- 完全オフライン配布物、コード署名、インストーラー、更新機構
 - SBOM、全依存ライセンス監査、利用者向け文書
 
 ## ライセンス

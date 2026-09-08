@@ -1,16 +1,14 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-title KARAOKE-GB - Setup and Diagnostic Launcher
+title KARAOKE-GB - First-run Setup and Launcher
 
-rem Keep a single launcher implementation. The PowerShell script verifies
-rem that the release EXE contains the current embedded Vite frontend.
 powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%~dp0run_diagnostic_ui.ps1"
 set "EXIT_CODE=%ERRORLEVEL%"
 
 echo.
 echo ============================================================
-echo [*] Application process terminated with exit code: %EXIT_CODE%
+echo [*] KARAOKE-GB finished with exit code: %EXIT_CODE%
 echo ============================================================
 echo.
 pause

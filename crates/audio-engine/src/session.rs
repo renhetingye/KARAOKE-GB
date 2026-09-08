@@ -57,6 +57,7 @@ impl KaraokeSession {
         vocal_octave_offset: i32,
         speed_ratio: f64,
         octave_tolerance: bool,
+        backing_gain_db: f32,
         monitor_config: MonitorConfig,
         recording_config: Option<RecordingConfig>,
     ) -> Result<Self, SessionError> {
@@ -86,6 +87,7 @@ impl KaraokeSession {
         let capture_sample_rate = Arc::new(AtomicU32::new(48_000));
         let capture_sample_rate_render = capture_sample_rate.clone();
         let monitor_config = monitor_config.sanitized();
+        let backing_gain = 10.0f32.powf(backing_gain_db.clamp(-60.0, 6.0) / 20.0);
         let session_monitor_config = monitor_config.clone();
         let monitor_enabled = monitor_config.enabled;
         let mut vocal_dsp = RealtimeVocalDsp::new(monitor_config);
@@ -151,7 +153,8 @@ impl KaraokeSession {
                                 .get(source_frame + 1)
                                 .copied()
                                 .unwrap_or(current);
-                            buf[output_index] = current + (next - current) * fraction;
+                            buf[output_index] =
+                                (current + (next - current) * fraction) * backing_gain;
                         } else {
                             buf[output_index] = 0.0;
                         }

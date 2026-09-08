@@ -163,6 +163,17 @@ pub struct LyricToken {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct LyricCue {
+    pub id: String,
+    pub text: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub start_us: Option<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub end_us: Option<u64>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Phrase {
     pub id: String,
     pub start_us: u64,
@@ -188,6 +199,8 @@ pub struct Chart {
     pub notes: Vec<Note>,
     pub lyric_tokens: Vec<LyricToken>,
     pub phrases: Vec<Phrase>,
+    #[serde(default)]
+    pub lyric_cues: Vec<LyricCue>,
     #[serde(default)]
     pub extensions: serde_json::Map<String, serde_json::Value>,
 }
@@ -406,6 +419,44 @@ impl Chart {
                         token_id: tid.clone(),
                     });
                 }
+            }
+        }
+
+        // Line-level timed lyrics are independent from notes and coexist with
+        // the legacy token/phrase representation for backwards compatibility.
+        let mut cue_ids = HashSet::new();
+        for cue in &self.lyric_cues {
+            if let (Some(start_us), Some(end_us)) = (cue.start_us, cue.end_us) {
+                if start_us >= end_us {
+                    return Err(ChartValidationError::InvalidInterval {
+                        id: cue.id.clone(),
+                        item_type: "lyric cue",
+                        start_us,
+                        end_us,
+                    });
+                }
+                if end_us > self.duration_us {
+                    return Err(ChartValidationError::ExceedsDuration {
+                        id: cue.id.clone(),
+                        item_type: "lyric cue",
+                        end_us,
+                        duration_us: self.duration_us,
+                    });
+                }
+            }
+            if cue.text.trim().is_empty() {
+                return Err(ChartValidationError::InvalidInterval {
+                    id: cue.id.clone(),
+                    item_type: "empty lyric cue",
+                    start_us: cue.start_us.unwrap_or(0),
+                    end_us: cue.end_us.unwrap_or(0),
+                });
+            }
+            if !cue_ids.insert(&cue.id) {
+                return Err(ChartValidationError::DuplicateId {
+                    id: cue.id.clone(),
+                    collection: "lyricCues",
+                });
             }
         }
 
