@@ -44,8 +44,9 @@ jobs:
         run: |
           $zip = Get-ChildItem .\release\KARAOKE-GB-*-windows-x64-portable.zip | Select-Object -First 1
           $sha = Get-Item "$($zip.FullName).sha256.txt"
-          gh release view $env:RELEASE_TAG *> $null
-          if ($LASTEXITCODE -ne 0) {
-            gh release create $env:RELEASE_TAG --title "KARAOKE-GB $env:RELEASE_TAG" --generate-notes
+          $releaseTags = @(gh release list --limit 100 --json tagName --jq '.[].tagName')
+          if ($releaseTags -contains $env:RELEASE_TAG) {
+            gh release upload $env:RELEASE_TAG $zip.FullName $sha.FullName --clobber
+          } else {
+            gh release create $env:RELEASE_TAG $zip.FullName $sha.FullName --title "KARAOKE-GB $env:RELEASE_TAG" --generate-notes
           }
-          gh release upload $env:RELEASE_TAG $zip.FullName $sha.FullName --clobber
