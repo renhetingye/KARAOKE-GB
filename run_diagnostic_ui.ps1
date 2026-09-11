@@ -159,9 +159,11 @@ function Ensure-ReleaseBinary {
         (Join-Path $projectRoot 'target\release\appsdesktop.exe')
     )
     if (-not $Rebuild) {
-        foreach ($candidate in $candidates) {
-            if (Test-Path -LiteralPath $candidate) { return $candidate }
-        }
+        $newestCandidate = $candidates |
+            Where-Object { Test-Path -LiteralPath $_ } |
+            Sort-Object { (Get-Item -LiteralPath $_).LastWriteTimeUtc } -Descending |
+            Select-Object -First 1
+        if ($newestCandidate) { return $newestCandidate }
     }
     if ($isPortable) { throw 'KARAOKE-GB.exe is missing from the portable package. Extract the ZIP again.' }
     if (-not (Get-Command npm.cmd -ErrorAction SilentlyContinue)) {

@@ -362,13 +362,15 @@ const activeLyricIndex = computed(() => {
   const next = lyricCues.value.findIndex((cue) => now < cue.startMs);
   return next >= 0 ? next : -1;
 });
+
 const visibleLyricCues = computed(() => {
   const active = activeLyricIndex.value;
   if (lyricCues.value.length === 0) return [];
+  const count = 7;
   const first = active < 0
-    ? (currentSongTimeMs.value < lyricCues.value[0].startMs ? 0 : Math.max(0, lyricCues.value.length - 7))
-    : Math.max(0, Math.min(active - 3, lyricCues.value.length - 7));
-  return lyricCues.value.slice(first, first + 7).map((cue, offset) => ({
+    ? (currentSongTimeMs.value < lyricCues.value[0].startMs ? 0 : Math.max(0, lyricCues.value.length - count))
+    : Math.max(0, Math.min(active - Math.floor(count / 2), lyricCues.value.length - count));
+  return lyricCues.value.slice(first, first + count).map((cue, offset) => ({
     ...cue,
     index: first + offset,
   }));
@@ -499,6 +501,10 @@ async function loadSongs() {
 async function selectSong() {
   currentSongTimeMs.value = 0;
   referenceResult.value = null;
+  // Remove the previous song immediately. Keeping its lyric nodes alive while
+  // the next chart loads can mix both songs during rapid A -> B -> A changes.
+  lyricCues.value = [];
+  targetNotes.value = [];
   await loadChart(false);
 }
 
@@ -621,10 +627,16 @@ async function confirmAudioImport() {
 }
 
 // Load chart data
+let chartLoadRequestId = 0;
 async function loadChart(isSynthetic: boolean = false) {
+  const requestId = ++chartLoadRequestId;
+  const requestedSongId = selectedSongId.value;
   try {
     const cmd = isSynthetic ? "get_synthetic_chart" : "get_current_chart";
-    const chart = await invoke<ChartData>(cmd, isSynthetic ? {} : { songId: selectedSongId.value });
+    const chart = await invoke<ChartData>(cmd, isSynthetic ? {} : { songId: requestedSongId });
+    // A newer selection/load owns the UI. Never let an older, slower request
+    // overwrite it after the user has switched songs again.
+    if (requestId !== chartLoadRequestId || (!isSynthetic && requestedSongId !== selectedSongId.value)) return;
     if (chart) {
       songTitle.value = chart.title;
       songArtist.value = chart.artist;
@@ -1897,16 +1909,16 @@ onUnmounted(() => {
 
         <section class="lyrics-side-panel" aria-label="時間同期歌詞">
           <div class="lyrics-side-title">歌詞</div>
-          <TransitionGroup v-if="visibleLyricCues.length" name="lyric-scroll" tag="div" class="timed-lyrics" aria-live="polite">
+          <div v-if="visibleLyricCues.length" class="timed-lyrics" aria-live="polite">
             <div
               v-for="cue in visibleLyricCues"
-              :key="cue.id"
+              :key="`${selectedSongId}:${cue.id}`"
               class="timed-lyric-line"
               :class="{ active: cue.index === activeLyricIndex, past: cue.index < activeLyricIndex }"
             >
               {{ cue.text }}
             </div>
-          </TransitionGroup>
+          </div>
           <div v-else class="lyrics-empty">譜面エディターで時間歌詞を追加すると、ここへ曲に合わせて表示されます。</div>
         </section>
       </aside>
@@ -2603,13 +2615,21 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .timed-lyric-line {
-  min-height: 38px;
+  flex: 0 0 auto;
+  min-height: 1.25em;
+  max-height: 2.5em;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   color: #9aa5b1;
-  font-size: clamp(18px, 1.35vw, 25px);
+  font-size: clamp(15px, 1vw, 19px);
   font-weight: 700;
   line-height: 1.25;
   opacity: 0.72;
@@ -2617,35 +2637,16 @@ onUnmounted(() => {
 }
 
 .timed-lyric-line.active {
+  max-height: 3.75em;
+  -webkit-line-clamp: 3;
   color: #ffffff;
   opacity: 1;
-  transform: scale(1.025);
-  transform-origin: left center;
+  transform: translateX(4px);
 }
 
 .timed-lyric-line.past {
   color: #7f8a96;
   opacity: 0.58;
-}
-
-.lyric-scroll-move,
-.lyric-scroll-enter-active,
-.lyric-scroll-leave-active {
-  transition: transform 260ms ease, opacity 260ms ease;
-}
-
-.lyric-scroll-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.lyric-scroll-leave-active {
-  position: absolute;
-}
-
-.lyric-scroll-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
 }
 
 .lyrics-empty {
